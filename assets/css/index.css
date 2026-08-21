@@ -1987,12 +1987,11 @@
     /* Quick features */
 
     .quick-features {
-        padding: 30px 0 34px;
+        padding: 0;
     }
 
     .quick-features__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        display: none;
     }
 
     .quick-feature {
@@ -2151,11 +2150,7 @@
     }
 
     .options__list {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 12px;
-
-        margin: 28px 0 34px;
-        padding: 26px 0;
+        display: none;
     }
 
     .options__list li {
