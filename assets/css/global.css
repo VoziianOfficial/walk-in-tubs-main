@@ -2320,13 +2320,15 @@ textarea:focus:not(:focus-visible) {
 
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 10px;
 
     min-width: 0;
-    padding: 30px 28px;
+    padding: 64px 22px 20px;
+
+    overflow: hidden;
 
     border: 1px solid var(--color-line);
-    border-radius: clamp(18px, 1.8vw, 26px);
+    border-radius: clamp(20px, 2vw, 28px);
 
     background: var(--color-surface);
 
@@ -2335,6 +2337,40 @@ textarea:focus:not(:focus-visible) {
         border-color var(--transition-base),
         background-color var(--transition-base),
         box-shadow var(--transition-base);
+}
+
+.expertise-card::before,
+.expertise-card::after {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+
+    border-radius: 50%;
+
+    background: var(--color-gold-dark);
+
+    opacity: 0.07;
+
+    pointer-events: none;
+}
+
+.expertise-card::before {
+    top: -76px;
+    right: -64px;
+
+    width: 190px;
+    height: 190px;
+}
+
+.expertise-card::after {
+    top: -36px;
+    right: -32px;
+
+    width: 108px;
+    height: 108px;
+
+    opacity: 0.12;
 }
 
 .expertise-card:hover {
@@ -2354,23 +2390,40 @@ textarea:focus:not(:focus-visible) {
     background: var(--color-text);
 }
 
+.expertise-card--dark::before,
+.expertise-card--dark::after {
+    background: var(--color-gold-soft);
+}
+
+.expertise-card--dark::before {
+    opacity: 0.06;
+}
+
+.expertise-card--dark::after {
+    opacity: 0.12;
+}
+
 .expertise-card--dark:hover {
     border-color: rgba(255, 255, 255, 0.22);
     box-shadow: 0 18px 40px rgba(15, 15, 13, 0.32);
 }
 
 .expertise-card__icon {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
     display: grid;
     place-items: center;
 
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 
     border-radius: var(--radius-medium);
 
-    background: var(--color-bg-soft);
+    background: var(--color-gold-dark);
 
-    color: var(--color-gold-dark);
+    color: var(--color-white);
 
     transition:
         color var(--transition-base),
@@ -2379,34 +2432,34 @@ textarea:focus:not(:focus-visible) {
 }
 
 .expertise-card__icon svg {
-    width: 26px;
-    height: 26px;
+    width: 20px;
+    height: 20px;
 
     fill: none;
     stroke: currentColor;
-    stroke-width: 1.5;
+    stroke-width: 1.6;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
 .expertise-card:hover .expertise-card__icon {
-    transform: translateY(-2px);
+    transform: scale(1.08);
 }
 
 .expertise-card--dark .expertise-card__icon {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--color-gold-soft);
+    background: var(--color-gold-soft);
+    color: var(--color-text);
 }
 
 .expertise-card h3 {
-    margin: 2px 0 0;
+    margin: 0;
 
     color: var(--color-text);
 
     font-family: var(--font-display);
-    font-size: 21px;
+    font-size: 19px;
     font-weight: 500;
-    line-height: 1.15;
+    line-height: 1.2;
 }
 
 .expertise-card--dark h3 {
@@ -2419,7 +2472,7 @@ textarea:focus:not(:focus-visible) {
     color: var(--color-text-muted);
 
     font-size: 12.5px;
-    line-height: 1.75;
+    line-height: 1.7;
 }
 
 .expertise-card--dark p {
@@ -2433,7 +2486,7 @@ textarea:focus:not(:focus-visible) {
 
     width: fit-content;
     margin-top: auto;
-    padding: 0;
+    padding: 4px 0 0;
 
     border: 0;
 
@@ -2499,7 +2552,7 @@ textarea:focus:not(:focus-visible) {
     }
 
     .expertise-card {
-        padding: 26px 22px;
+        padding: 58px 20px 18px;
     }
 }
 
