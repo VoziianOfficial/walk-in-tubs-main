@@ -2221,3 +2221,356 @@ textarea:focus:not(:focus-visible) {
         font-size: clamp(22px, 6vw, 28px);
     }
 }
+
+
+/* =========================================================
+   EXPERTISE PANEL
+========================================================= */
+
+.expertise-panel {
+    padding: 64px 0 72px;
+
+    background: var(--color-bg);
+}
+
+.expertise-panel__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.expertise-panel__top {
+    display: grid;
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+    align-items: center;
+    gap: clamp(40px, 5vw, 72px);
+}
+
+.expertise-panel__content {
+    max-width: 480px;
+}
+
+.expertise-panel__title {
+    margin: 0 0 20px;
+
+    color: var(--color-text);
+
+    font-family: var(--font-display);
+    font-size: clamp(38px, 3.6vw, 56px);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+}
+
+.expertise-panel__title em {
+    display: block;
+
+    color: var(--color-gold-dark);
+    font-style: normal;
+    font-weight: 500;
+}
+
+.expertise-panel__text {
+    max-width: 420px;
+    margin: 0 0 28px;
+
+    color: var(--color-text-soft);
+
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+.expertise-panel__media {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: clamp(22px, 2.4vw, 34px);
+
+    box-shadow: var(--shadow-soft);
+}
+
+.expertise-panel__media img {
+    display: block;
+
+    width: 100%;
+    height: clamp(300px, 30vw, 420px);
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform var(--transition-slow);
+}
+
+.expertise-panel__media:hover img {
+    transform: scale(1.02);
+}
+
+
+/* Cards */
+
+.expertise-panel__cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.expertise-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    min-width: 0;
+    padding: 30px 28px;
+
+    border: 1px solid var(--color-line);
+    border-radius: clamp(18px, 1.8vw, 26px);
+
+    background: var(--color-surface);
+
+    transition:
+        transform var(--transition-base),
+        border-color var(--transition-base),
+        background-color var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+.expertise-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--color-gold-soft);
+    box-shadow: 0 18px 40px rgba(41, 42, 39, 0.1);
+}
+
+.expertise-card--tint {
+    background: var(--color-bg-soft);
+}
+
+.expertise-card--dark {
+    border-color: rgba(255, 255, 255, 0.1);
+
+    background: var(--color-text);
+}
+
+.expertise-card--dark:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow: 0 18px 40px rgba(15, 15, 13, 0.32);
+}
+
+.expertise-card__icon {
+    display: grid;
+    place-items: center;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: var(--radius-medium);
+
+    background: var(--color-bg-soft);
+
+    color: var(--color-gold-dark);
+
+    transition:
+        color var(--transition-base),
+        background-color var(--transition-base),
+        transform var(--transition-base);
+}
+
+.expertise-card__icon svg {
+    width: 26px;
+    height: 26px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.expertise-card:hover .expertise-card__icon {
+    transform: translateY(-2px);
+}
+
+.expertise-card--dark .expertise-card__icon {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-gold-soft);
+}
+
+.expertise-card h3 {
+    margin: 2px 0 0;
+
+    color: var(--color-text);
+
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+.expertise-card--dark h3 {
+    color: var(--color-white);
+}
+
+.expertise-card p {
+    margin: 0;
+
+    color: var(--color-text-muted);
+
+    font-size: 12.5px;
+    line-height: 1.75;
+}
+
+.expertise-card--dark p {
+    color: rgba(255, 255, 255, 0.66);
+}
+
+.expertise-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    width: fit-content;
+    margin-top: auto;
+    padding: 0;
+
+    border: 0;
+
+    background: none;
+
+    color: var(--color-gold-dark);
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: color var(--transition-base);
+}
+
+.expertise-card__link svg {
+    width: 15px;
+    height: 15px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    transition: transform var(--transition-base);
+}
+
+.expertise-card__link:hover {
+    color: var(--color-text);
+}
+
+.expertise-card--dark .expertise-card__link {
+    color: var(--color-gold-soft);
+}
+
+.expertise-card--dark .expertise-card__link:hover {
+    color: var(--color-white);
+}
+
+.expertise-card:hover .expertise-card__link svg {
+    transform: translateX(4px);
+}
+
+
+@media (max-width: 1200px) {
+    .expertise-panel {
+        padding: 56px 0 64px;
+    }
+
+    .expertise-panel__top {
+        gap: 36px;
+    }
+
+    .expertise-panel__media img {
+        height: clamp(280px, 34vw, 380px);
+    }
+
+    .expertise-panel__cards {
+        gap: 16px;
+    }
+
+    .expertise-card {
+        padding: 26px 22px;
+    }
+}
+
+
+@media (max-width: 900px) {
+    .expertise-panel {
+        padding: 48px 0 56px;
+    }
+
+    .expertise-panel__top {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .expertise-panel__content {
+        max-width: 560px;
+    }
+
+    .expertise-panel__media img {
+        height: clamp(260px, 46vw, 360px);
+    }
+
+    .expertise-panel__cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .expertise-card:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .expertise-panel {
+        padding: 40px 0 48px;
+    }
+
+    .expertise-panel__inner {
+        gap: 30px;
+    }
+
+    .expertise-panel__content {
+        max-width: 100%;
+
+        text-align: center;
+    }
+
+    .expertise-panel__title {
+        font-size: clamp(30px, 8.5vw, 38px);
+    }
+
+    .expertise-panel__text {
+        margin-inline: auto;
+    }
+
+    .expertise-panel__media img {
+        height: clamp(200px, 58vw, 280px);
+    }
+
+    .expertise-panel__cards {
+        grid-template-columns: minmax(0, 1fr);
+
+        gap: 14px;
+    }
+
+    .expertise-card:last-child {
+        grid-column: auto;
+    }
+
+    .expertise-card {
+        align-items: center;
+
+        text-align: center;
+    }
+}
