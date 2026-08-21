@@ -198,10 +198,12 @@
 
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    justify-content: center;
 
-    min-height: 158px;
-    padding: 26px 24px;
+    min-height: 126px;
+    padding: 24px 22px;
+
+    overflow: hidden;
 
     border: 1px solid var(--color-line);
     border-radius: clamp(16px, 1.6vw, 22px);
@@ -211,30 +213,66 @@
     transition:
         transform var(--transition-base),
         border-color var(--transition-base),
-        background-color var(--transition-base);
+        background-color var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+.service-feature::before {
+    content: "";
+
+    position: absolute;
+    top: 24px;
+    right: 56px;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: var(--color-gold-dark);
+
+    opacity: 0.3;
+
+    box-shadow:
+        8px 0 0 var(--color-gold-dark),
+        16px 0 0 var(--color-gold-dark),
+        0 8px 0 var(--color-gold-dark),
+        8px 8px 0 var(--color-gold-dark),
+        16px 8px 0 var(--color-gold-dark),
+        0 16px 0 var(--color-gold-dark),
+        8px 16px 0 var(--color-gold-dark),
+        16px 16px 0 var(--color-gold-dark);
+
+    transition: opacity var(--transition-base);
+
+    pointer-events: none;
+}
+
+.service-feature:hover::before {
+    opacity: 0.55;
 }
 
 .service-feature__icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
     display: grid;
     place-items: center;
 
-    width: 46px;
-    height: 46px;
-
-    border-radius: var(--radius-medium);
-
-    background: var(--color-bg-soft);
+    width: 26px;
+    height: 26px;
 
     color: var(--color-gold-dark);
 
     transition:
         color var(--transition-base),
-        background-color var(--transition-base);
+        transform var(--transition-base);
 }
 
 .service-feature__icon svg {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
 
     fill: none;
     stroke: currentColor;
@@ -243,13 +281,18 @@
     stroke-linejoin: round;
 }
 
+.service-feature > div {
+    position: relative;
+    z-index: 1;
+}
+
 .service-feature h2 {
     margin: 0 0 6px;
 
     font-family: var(--font-display);
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 500;
-    line-height: 1.05;
+    line-height: 1.1;
 }
 
 .service-feature p {
@@ -266,13 +309,13 @@
     transform: translateY(-4px);
 
     border-color: var(--color-gold-soft);
+    box-shadow: 0 14px 32px rgba(41, 42, 39, 0.08);
     background: var(--color-white);
 }
 
 .service-feature:hover .service-feature__icon {
-    background: var(--color-gold-dark);
-
-    color: var(--color-white);
+    color: var(--color-text);
+    transform: translateY(-2px);
 }
 
 
