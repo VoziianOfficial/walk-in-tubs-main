@@ -11,7 +11,7 @@
 .service-hero {
     position: relative;
 
-    padding: 76px 0 135px;
+    padding: 60px 0 90px;
 
     overflow: hidden;
 
@@ -43,7 +43,7 @@
         minmax(0, 0.82fr)
         minmax(0, 1.18fr);
     align-items: center;
-    gap: clamp(70px, 8vw, 140px);
+    gap: clamp(52px, 7vw, 90px);
 }
 
 .service-hero__content {
@@ -253,7 +253,7 @@
 ========================================================= */
 
 .service-feature-strip {
-    padding: 0 0 110px;
+    padding: 0 0 70px;
 
     background: var(--color-bg);
 }
@@ -288,8 +288,8 @@
     grid-template-columns: 42px minmax(0, 1fr);
     gap: 22px;
 
-    min-height: 150px;
-    padding: 34px 28px;
+    min-height: 128px;
+    padding: 26px 22px;
 
     transition:
         background-color var(--transition-base),
@@ -350,7 +350,7 @@
 ========================================================= */
 
 .installation-guide {
-    padding: 150px 0 165px;
+    padding: 92px 0 98px;
 
     background: var(--color-surface);
 }
@@ -361,7 +361,7 @@
         minmax(0, 0.92fr)
         minmax(0, 0.88fr);
     align-items: center;
-    gap: clamp(75px, 9vw, 155px);
+    gap: clamp(50px, 7vw, 95px);
 }
 
 .installation-guide__visual {
@@ -371,7 +371,7 @@
 .installation-guide__image {
     position: relative;
 
-    width: min(100%, 650px);
+    width: min(100%, 590px);
     aspect-ratio: 0.88;
 
     overflow: hidden;
@@ -431,7 +431,7 @@
 /* Guide points */
 
 .installation-guide__points {
-    margin-top: 42px;
+    margin-top: 32px;
 
     border-top: 1px solid var(--color-line);
 }
@@ -442,7 +442,7 @@
     align-items: start;
     gap: 20px;
 
-    padding: 27px 0;
+    padding: 20px 0;
 
     border-bottom: 1px solid var(--color-line);
 
@@ -555,7 +555,7 @@
 ========================================================= */
 
 .installation-features {
-    padding: 155px 0;
+    padding: 92px 0;
 
     overflow: clip;
 
@@ -577,7 +577,7 @@
 }
 
 .installation-feature-card {
-    width: min(34vw, 465px);
+    width: min(31vw, 430px);
     max-width: 100%;
     min-width: 0;
 
@@ -616,14 +616,14 @@
 
 .installation-feature-card__content {
     min-width: 0;
-    min-height: 250px;
-    padding: 30px 31px 36px;
+    min-height: 210px;
+    padding: 24px 26px 28px;
 }
 
 .installation-feature-card__content > span {
     display: block;
 
-    margin-bottom: 25px;
+    margin-bottom: 18px;
 
     color: var(--color-gold-dark);
 
@@ -633,7 +633,7 @@
 }
 
 .installation-feature-card__content h3 {
-    margin: 0 0 17px;
+    margin: 0 0 13px;
 
     font-family: var(--font-display);
     font-size: clamp(29px, 2.8vw, 39px);
@@ -676,7 +676,7 @@
 ========================================================= */
 
 .service-parallax {
-    padding: 0 0 155px;
+    padding: 0 0 95px;
 
     background: var(--color-bg);
 }
@@ -684,7 +684,7 @@
 .service-parallax__frame {
     position: relative;
 
-    min-height: clamp(640px, 65vw, 850px);
+    min-height: clamp(500px, 54vw, 680px);
 
     overflow: hidden;
 
@@ -725,7 +725,7 @@
 .service-parallax__content {
     position: absolute;
     z-index: 2;
-    bottom: clamp(60px, 7vw, 105px);
+    bottom: clamp(44px, 5vw, 70px);
     left: clamp(38px, 6vw, 92px);
 
     width: min(calc(100% - 76px), 680px);
@@ -737,7 +737,7 @@
 
 .service-parallax__content > p:not(.section-eyebrow) {
     max-width: 510px;
-    margin: 0 0 34px;
+    margin: 0 0 24px;
 
     color: rgba(255, 255, 255, 0.72);
 
@@ -751,7 +751,7 @@
 ========================================================= */
 
 .installation-process {
-    padding: 155px 0;
+    padding: 92px 0;
 
     background: var(--color-surface);
 }
@@ -762,7 +762,7 @@
         minmax(0, 0.72fr)
         minmax(0, 1.28fr);
     align-items: start;
-    gap: clamp(70px, 9vw, 155px);
+    gap: clamp(50px, 7vw, 95px);
 }
 
 .installation-process__intro {
@@ -784,7 +784,7 @@
 .installation-process__timeline {
     position: relative;
 
-    padding-left: 68px;
+    padding-left: 58px;
 }
 
 .installation-process__timeline::before {
@@ -793,7 +793,7 @@
     position: absolute;
     top: 17px;
     bottom: 17px;
-    left: 19px;
+    left: 17px;
 
     width: 1px;
 
@@ -803,14 +803,14 @@
 .installation-process-step {
     position: relative;
 
-    min-height: 165px;
-    padding: 0 0 50px;
+    min-height: 125px;
+    padding: 0 0 35px;
 
     transition: transform var(--transition-base);
 }
 
 .installation-process-step:not(:last-child) {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .installation-process-step:last-child {
@@ -824,7 +824,7 @@
 .installation-process-step__number {
     position: absolute;
     top: 0;
-    left: -68px;
+    left: -58px;
 
     display: grid;
     place-items: center;
@@ -857,7 +857,7 @@
 }
 
 .installation-process-step__content {
-    padding-bottom: 42px;
+    padding-bottom: 30px;
 
     border-bottom: 1px solid var(--color-line);
 }
@@ -895,7 +895,7 @@
 ========================================================= */
 
 .installation-comfort {
-    padding: 160px 0;
+    padding: 94px 0;
 
     background: var(--color-bg);
 }
@@ -906,7 +906,7 @@
         minmax(0, 0.8fr)
         minmax(0, 1.2fr);
     align-items: center;
-    gap: clamp(70px, 8vw, 135px);
+    gap: clamp(50px, 7vw, 92px);
 }
 
 .installation-comfort__content {
@@ -923,7 +923,7 @@
     flex-direction: column;
     gap: 0;
 
-    margin: 36px 0 40px;
+    margin: 26px 0 30px;
     padding: 0;
 
     border-top: 1px solid var(--color-line);
@@ -967,7 +967,7 @@
     position: relative;
 
     min-width: 0;
-    padding: 0 0 82px 80px;
+    padding: 0 0 60px 58px;
 }
 
 .installation-comfort__main-image {
@@ -1010,7 +1010,7 @@
     bottom: 0;
     left: 0;
 
-    width: clamp(190px, 23vw, 320px);
+    width: clamp(165px, 20vw, 270px);
     aspect-ratio: 0.96;
 
     overflow: hidden;
@@ -1040,7 +1040,7 @@
 ========================================================= */
 
 .service-faq {
-    padding: 155px 0;
+    padding: 92px 0;
 
     background: #ebe6dc;
 }
@@ -1051,7 +1051,7 @@
         minmax(0, 0.7fr)
         minmax(0, 1.3fr);
     align-items: start;
-    gap: clamp(70px, 9vw, 155px);
+    gap: clamp(50px, 7vw, 95px);
 }
 
 .service-faq__intro {
@@ -1085,7 +1085,7 @@
     gap: 30px;
 
     width: 100%;
-    padding: 31px 0;
+    padding: 22px 0;
 
     color: var(--color-text);
     background: transparent;
@@ -1175,7 +1175,7 @@
 .service-accordion-item__content {
     max-width: 690px;
 
-    padding: 0 76px 34px 0;
+    padding: 0 76px 24px 0;
 }
 
 .service-accordion-item__content p {
@@ -1193,7 +1193,7 @@
 ========================================================= */
 
 .service-contact {
-    padding: 155px 0;
+    padding: 92px 0;
 
     background: var(--color-bg);
 }
@@ -1204,7 +1204,7 @@
         minmax(0, 0.88fr)
         minmax(0, 1.12fr);
 
-    min-height: 720px;
+    min-height: 580px;
 
     background: #e7e1d6;
 }
@@ -1212,7 +1212,7 @@
 .service-contact__visual {
     position: relative;
 
-    min-height: 720px;
+    min-height: 580px;
 
     overflow: hidden;
 }
@@ -1251,7 +1251,7 @@
     flex-direction: column;
     justify-content: center;
 
-    padding: clamp(58px, 7vw, 100px);
+    padding: clamp(42px, 5vw, 74px);
 
     min-width: 0;
 }
@@ -1270,7 +1270,7 @@
 .service-contact-form {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 27px 34px;
+    gap: 22px 28px;
 
     width: 100%;
     margin-top: 12px;
@@ -1285,7 +1285,7 @@
     gap: 34px;
 
     margin-top: 8px;
-    padding-top: 28px;
+    padding-top: 22px;
 
     border-top: 1px solid var(--color-line);
 }
@@ -1315,7 +1315,7 @@
             minmax(0, 0.9fr)
             minmax(0, 1.1fr);
 
-        gap: 76px;
+        gap: 58px;
     }
 
     .service-hero__title {
@@ -1330,16 +1330,16 @@
 
     .installation-guide__inner,
     .installation-comfort__inner {
-        gap: 85px;
+        gap: 58px;
     }
 
     .installation-process__inner,
     .service-faq__inner {
-        gap: 90px;
+        gap: 58px;
     }
 
     .service-contact__content {
-        padding: 65px;
+        padding: 50px;
     }
 }
 
@@ -1352,7 +1352,7 @@
     /* Hero */
 
     .service-hero {
-        padding: 65px 0 115px;
+        padding: 55px 0 75px;
     }
 
     .service-hero__inner {
@@ -1360,7 +1360,7 @@
             minmax(0, 0.9fr)
             minmax(0, 1.1fr);
 
-        gap: 52px;
+        gap: 42px;
     }
 
     .service-hero__visual {
@@ -1381,7 +1381,7 @@
     /* Feature strip */
 
     .service-feature-strip {
-        padding-bottom: 90px;
+        padding-bottom: 60px;
     }
 
     .service-feature-strip__grid {
@@ -1400,11 +1400,11 @@
     /* Guide */
 
     .installation-guide {
-        padding: 125px 0 135px;
+        padding: 72px 0 78px;
     }
 
     .installation-guide__inner {
-        gap: 58px;
+        gap: 42px;
     }
 
     .installation-guide__points article {
@@ -1420,7 +1420,7 @@
     /* Features */
 
     .installation-features {
-        padding: 125px 0;
+        padding: 72px 0;
     }
 
     .installation-feature-card {
@@ -1431,23 +1431,23 @@
     /* Parallax */
 
     .service-parallax {
-        padding-bottom: 125px;
+        padding-bottom: 70px;
     }
 
     .service-parallax__frame {
-        min-height: 720px;
+        min-height: 580px;
     }
 
 
     /* Process */
 
     .installation-process {
-        padding: 125px 0;
+        padding: 72px 0;
     }
 
     .installation-process__inner {
         grid-template-columns: minmax(0, 1fr);
-        gap: 50px;
+        gap: 36px;
     }
 
     .installation-process__intro {
@@ -1460,27 +1460,27 @@
     /* Comfort */
 
     .installation-comfort {
-        padding: 130px 0;
+        padding: 74px 0;
     }
 
     .installation-comfort__inner {
-        gap: 55px;
+        gap: 42px;
     }
 
     .installation-comfort__visual {
-        padding-left: 55px;
+        padding-left: 42px;
     }
 
 
     /* FAQ */
 
     .service-faq {
-        padding: 125px 0;
+        padding: 72px 0;
     }
 
     .service-faq__inner {
         grid-template-columns: minmax(0, 1fr);
-        gap: 48px;
+        gap: 36px;
     }
 
     .service-faq__intro {
@@ -1493,7 +1493,7 @@
     /* Contact */
 
     .service-contact {
-        padding: 125px 0;
+        padding: 72px 0;
     }
 
     .service-contact__inner {
@@ -1501,15 +1501,15 @@
             minmax(0, 0.82fr)
             minmax(0, 1.18fr);
 
-        min-height: 680px;
+        min-height: 560px;
     }
 
     .service-contact__visual {
-        min-height: 680px;
+        min-height: 560px;
     }
 
     .service-contact__content {
-        padding: 48px;
+        padding: 40px;
     }
 }
 
@@ -1522,12 +1522,12 @@
     /* Hero */
 
     .service-hero {
-        padding: 68px 0 105px;
+        padding: 56px 0 76px;
     }
 
     .service-hero__inner {
         grid-template-columns: minmax(0, 1fr);
-        gap: 70px;
+        gap: 48px;
     }
 
     .service-hero__content {
@@ -1564,7 +1564,7 @@
 
     .installation-guide__inner {
         grid-template-columns: minmax(0, 1fr);
-        gap: 72px;
+        gap: 52px;
     }
 
     .installation-guide__visual {
@@ -1587,7 +1587,7 @@
     /* Parallax */
 
     .service-parallax__frame {
-        min-height: 690px;
+        min-height: 560px;
     }
 
     .service-parallax__content {
@@ -1602,7 +1602,7 @@
 
     .installation-comfort__inner {
         grid-template-columns: minmax(0, 1fr);
-        gap: 75px;
+        gap: 54px;
     }
 
     .installation-comfort__content {
@@ -1612,7 +1612,7 @@
     .installation-comfort__visual {
         width: min(88%, 680px);
         margin-left: auto;
-        padding-left: 80px;
+        padding-left: 58px;
     }
 
 
@@ -1623,11 +1623,11 @@
     }
 
     .service-contact__visual {
-        min-height: 520px;
+        min-height: 420px;
     }
 
     .service-contact__content {
-        padding: 68px 48px;
+        padding: 52px 40px;
     }
 }
 
@@ -1640,7 +1640,7 @@
     /* Hero */
 
     .service-hero {
-        padding: 52px 0 86px;
+        padding: 42px 0 60px;
     }
 
     .service-hero::before {
@@ -1648,7 +1648,7 @@
     }
 
     .service-hero__inner {
-        gap: 52px;
+        gap: 36px;
     }
 
     .service-hero__title {
@@ -1692,14 +1692,14 @@
     /* Feature strip */
 
     .service-feature-strip {
-        padding-bottom: 72px;
+        padding-bottom: 48px;
     }
 
     .service-feature {
         grid-template-columns: 28px minmax(0, 1fr);
 
-        min-height: 125px;
-        padding: 25px 14px;
+        min-height: 108px;
+        padding: 20px 12px;
 
         gap: 10px;
     }
@@ -1728,11 +1728,11 @@
     /* Guide */
 
     .installation-guide {
-        padding: 96px 0 102px;
+        padding: 58px 0;
     }
 
     .installation-guide__inner {
-        gap: 55px;
+        gap: 38px;
     }
 
     .installation-guide__visual {
@@ -1750,7 +1750,7 @@
     }
 
     .installation-guide__points {
-        margin-top: 32px;
+        margin-top: 24px;
     }
 
     .installation-guide__points article {
@@ -1758,7 +1758,7 @@
 
         gap: 9px 14px;
 
-        padding: 23px 0;
+        padding: 19px 0;
     }
 
     .installation-guide__points h3 {
@@ -1801,7 +1801,7 @@
     /* Feature slider */
 
     .installation-features {
-        padding: 96px 0 100px;
+        padding: 58px 0;
     }
 
     .installation-feature-card {
@@ -1809,8 +1809,8 @@
     }
 
     .installation-feature-card__content {
-        min-height: 230px;
-        padding: 26px 23px 30px;
+        min-height: 200px;
+        padding: 22px 20px 25px;
     }
 
     .installation-feature-card__content h3 {
@@ -1831,11 +1831,11 @@
     /* Parallax */
 
     .service-parallax {
-        padding-bottom: 100px;
+        padding-bottom: 58px;
     }
 
     .service-parallax__frame {
-        min-height: 630px;
+        min-height: 520px;
     }
 
     .service-parallax__media {
@@ -1873,11 +1873,11 @@
     /* Process */
 
     .installation-process {
-        padding: 96px 0 100px;
+        padding: 58px 0;
     }
 
     .installation-process__inner {
-        gap: 38px;
+        gap: 30px;
     }
 
     .installation-process__timeline {
@@ -1890,11 +1890,11 @@
 
     .installation-process-step {
         min-height: auto;
-        padding-bottom: 34px;
+        padding-bottom: 28px;
     }
 
     .installation-process-step:not(:last-child) {
-        margin-bottom: 22px;
+        margin-bottom: 16px;
     }
 
     .installation-process-step__number {
@@ -1905,7 +1905,7 @@
     }
 
     .installation-process-step__content {
-        padding-bottom: 32px;
+        padding-bottom: 26px;
     }
 
     .installation-process-step__content h3 {
@@ -1924,20 +1924,20 @@
     /* Comfort */
 
     .installation-comfort {
-        padding: 100px 0;
+        padding: 58px 0;
     }
 
     .installation-comfort__inner {
-        gap: 58px;
+        gap: 38px;
     }
 
     .installation-comfort__list {
-        margin: 30px 0 34px;
+        margin: 24px 0 28px;
     }
 
     .installation-comfort__visual {
         width: 92%;
-        padding: 0 0 65px 42px;
+        padding: 0 0 48px 34px;
     }
 
     .installation-comfort__main-image::after {
@@ -1954,11 +1954,11 @@
     /* FAQ */
 
     .service-faq {
-        padding: 96px 0 100px;
+        padding: 58px 0;
     }
 
     .service-faq__inner {
-        gap: 36px;
+        gap: 30px;
     }
 
     .service-accordion-item__trigger {
@@ -1967,7 +1967,7 @@
             38px;
         gap: 16px;
 
-        padding: 25px 0;
+        padding: 21px 0;
     }
 
     .service-accordion-item__trigger > span:first-child {
@@ -1996,15 +1996,15 @@
     /* Contact */
 
     .service-contact {
-        padding: 100px 0;
+        padding: 58px 0;
     }
 
     .service-contact__visual {
-        min-height: 410px;
+        min-height: 340px;
     }
 
     .service-contact__content {
-        padding: 50px 20px 55px;
+        padding: 40px 20px 44px;
     }
 
     .service-contact-form {
