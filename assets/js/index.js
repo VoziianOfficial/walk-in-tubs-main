@@ -879,6 +879,62 @@ const initMarquee = () => {
 
 
 /* =========================================================
+   ASSEMBLY REVEAL
+========================================================= */
+
+const initAssemblyReveal = () => {
+    const grid = homeQuery("[data-assembly-grid]");
+
+    if (!grid) {
+        return;
+    }
+
+
+    const settle = () => {
+        grid.classList.add("is-settled");
+    };
+
+
+    if (
+        prefersReducedMotion ||
+        typeof window.IntersectionObserver === "undefined"
+    ) {
+        grid.classList.add(
+            "is-visible",
+            "is-settled"
+        );
+
+        return;
+    }
+
+
+    const observer = new IntersectionObserver(
+        (entries, currentObserver) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+
+                grid.classList.add("is-visible");
+
+                window.setTimeout(settle, 1150);
+
+                currentObserver.unobserve(entry.target);
+            });
+        },
+        {
+            threshold: 0.25,
+            rootMargin: "0px 0px -10% 0px"
+        }
+    );
+
+
+    observer.observe(grid);
+};
+
+
+/* =========================================================
    REINITIALISE SWIPERS AFTER IMAGES
 ========================================================= */
 
@@ -915,6 +971,8 @@ const initHomePage = () => {
     initParallax();
 
     initMarquee();
+
+    initAssemblyReveal();
 };
 
 
