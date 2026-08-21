@@ -18,6 +18,25 @@ const getConfigValue = (key) => {
     return window.SITE_CONFIG[key];
 };
 
+const resolveConfigValue = (key) => {
+    const value = getConfigValue(key);
+
+    if (typeof value !== "string") {
+        return value;
+    }
+
+    return value.replace(
+        /\{(companyName|email|address)\}/g,
+        (_match, configKey) => {
+            const replacement = getConfigValue(configKey);
+
+            return typeof replacement === "string"
+                ? replacement
+                : "";
+        }
+    );
+};
+
 const getFocusableElements = (container) => {
     if (!container) {
         return [];
@@ -58,7 +77,7 @@ const applySiteConfig = () => {
     /* Browser title */
 
     if (config.browserTitle) {
-        document.title = window.SITE_CONFIG.browserTitle;
+        document.title = resolveConfigValue("browserTitle");
     }
 
 
@@ -86,7 +105,7 @@ const applySiteConfig = () => {
 
     qsa("[data-config]").forEach((element) => {
         const configKey = element.dataset.config;
-        const value = getConfigValue(configKey);
+        const value = resolveConfigValue(configKey);
 
         if (typeof value === "string") {
             element.textContent = value;
@@ -98,7 +117,7 @@ const applySiteConfig = () => {
 
     qsa("[data-config-src]").forEach((element) => {
         const configKey = element.dataset.configSrc;
-        const value = getConfigValue(configKey);
+        const value = resolveConfigValue(configKey);
 
         if (typeof value === "string") {
             element.setAttribute("src", value);
@@ -110,7 +129,7 @@ const applySiteConfig = () => {
 
     qsa("[data-config-alt]").forEach((element) => {
         const configKey = element.dataset.configAlt;
-        const value = getConfigValue(configKey);
+        const value = resolveConfigValue(configKey);
 
         if (typeof value === "string") {
             element.setAttribute("alt", value);
@@ -122,7 +141,7 @@ const applySiteConfig = () => {
 
     qsa("[data-config-href]").forEach((element) => {
         const configKey = element.dataset.configHref;
-        const value = getConfigValue(configKey);
+        const value = resolveConfigValue(configKey);
 
         if (typeof value !== "string") {
             return;
