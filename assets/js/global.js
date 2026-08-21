@@ -740,6 +740,52 @@ const initImageSafety = () => {
 
 
 /* =========================================================
+   LEGAL CONFIRMATION
+========================================================= */
+
+const LEGAL_CONFIRMATION_KEY = "legalConfirmed";
+
+const initLegalConfirmation = () => {
+    const card = qs("[data-legal-confirmation]");
+    const confirmButton = qs("[data-legal-confirm]", card);
+
+    if (!card || !confirmButton) {
+        return;
+    }
+
+    let alreadyConfirmed = false;
+
+    try {
+        alreadyConfirmed =
+            window.localStorage.getItem(LEGAL_CONFIRMATION_KEY) === "true";
+    } catch {
+        alreadyConfirmed = false;
+    }
+
+    if (alreadyConfirmed) {
+        return;
+    }
+
+    window.requestAnimationFrame(() => {
+        card.classList.add("is-visible");
+    });
+
+    confirmButton.addEventListener("click", () => {
+        card.classList.remove("is-visible");
+
+        try {
+            window.localStorage.setItem(
+                LEGAL_CONFIRMATION_KEY,
+                "true"
+            );
+        } catch {
+            return;
+        }
+    });
+};
+
+
+/* =========================================================
    INITIALIZATION
 ========================================================= */
 
@@ -764,6 +810,8 @@ const initGlobal = () => {
     initFlipCards();
 
     initImageSafety();
+
+    initLegalConfirmation();
 };
 
 

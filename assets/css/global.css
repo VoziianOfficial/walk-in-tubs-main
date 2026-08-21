@@ -2945,3 +2945,129 @@ textarea:focus:not(:focus-visible) {
         text-align: center;
     }
 }
+
+
+/* =========================================================
+   LEGAL CONFIRMATION
+========================================================= */
+
+.legal-confirmation {
+    position: fixed;
+    left: 50%;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    z-index: 1500;
+
+    width: min(860px, calc(100% - 48px));
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translate(-50%, 14px);
+
+    transition:
+        opacity 420ms ease,
+        transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s linear 420ms;
+}
+
+.legal-confirmation.is-visible {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: translate(-50%, 0);
+
+    transition:
+        opacity 420ms ease,
+        transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s linear 0s;
+}
+
+.legal-confirmation__inner {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    padding: 16px 16px 16px 26px;
+
+    border-radius: var(--radius-large);
+
+    background: #272823;
+    box-shadow: 0 14px 34px rgba(20, 19, 14, 0.2);
+}
+
+.legal-confirmation__content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.legal-confirmation__text {
+    display: -webkit-box;
+    overflow: hidden;
+
+    max-width: 640px;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 12.5px;
+    line-height: 1.6;
+
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.legal-confirmation__link {
+    width: fit-content;
+
+    color: var(--color-gold-soft);
+
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    transition: color var(--transition-fast);
+}
+
+.legal-confirmation__link:hover {
+    color: var(--color-white);
+}
+
+.legal-confirmation__button {
+    flex-shrink: 0;
+
+    min-height: 44px;
+    padding: 0 24px;
+
+    font-size: 10px;
+}
+
+
+@media (max-width: 640px) {
+    .legal-confirmation {
+        bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+
+        width: calc(100% - 24px);
+    }
+
+    .legal-confirmation__inner {
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 14px;
+
+        padding: 16px 18px;
+    }
+
+    .legal-confirmation__button {
+        width: 100%;
+    }
+}
