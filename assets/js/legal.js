@@ -341,20 +341,6 @@ const initLegalNavigation = () => {
 
 
 /* =========================================================
-   REFRESH AOS
-========================================================= */
-
-const refreshLegalLayout = () => {
-    if (
-        typeof window.AOS !== "undefined" &&
-        typeof window.AOS.refresh === "function"
-    ) {
-        window.AOS.refresh();
-    }
-};
-
-
-/* =========================================================
    INITIALIZATION
 ========================================================= */
 
@@ -371,9 +357,3 @@ if (document.readyState === "loading") {
 } else {
     initLegalPage();
 }
-
-
-window.addEventListener(
-    "load",
-    refreshLegalLayout
-);

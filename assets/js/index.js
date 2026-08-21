@@ -944,14 +944,6 @@ const refreshHomeLayout = () => {
             slider.swiper.update();
         }
     });
-
-
-    if (
-        typeof window.AOS !== "undefined" &&
-        typeof window.AOS.refresh === "function"
-    ) {
-        window.AOS.refresh();
-    }
 };
 
 

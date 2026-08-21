@@ -733,15 +733,6 @@
     line-height: 1.65;
 }
 
-.service-parallax__content[data-aos="fade-up"] {
-    transform: translate3d(-50%, calc(-50% + 100px), 0);
-}
-
-.service-parallax__content[data-aos][data-aos].aos-animate {
-    transform: translate3d(-50%, -50%, 0);
-}
-
-
 /* =========================================================
    INSTALLATION PROCESS
 ========================================================= */

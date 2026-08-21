@@ -304,8 +304,10 @@
 }
 
 .quick-features__grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
     gap: 14px;
 }
 
@@ -334,7 +336,7 @@
 
 .quick-feature:nth-child(1),
 .quick-feature:nth-child(6) {
-    grid-column: span 2;
+    grid-column: auto;
 }
 
 .quick-feature__icon {
@@ -1055,15 +1057,6 @@
     line-height: 1.65;
 }
 
-.parallax-showcase__content[data-aos="fade-up"] {
-    transform: translate3d(-50%, calc(-50% + 100px), 0);
-}
-
-.parallax-showcase__content[data-aos][data-aos].aos-animate {
-    transform: translate3d(-50%, -50%, 0);
-}
-
-
 /* =========================================================
    PROCESS
 ========================================================= */
@@ -1558,7 +1551,7 @@
     }
 
     .quick-features__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-content: center;
     }
 
     .quick-feature:nth-child(1),

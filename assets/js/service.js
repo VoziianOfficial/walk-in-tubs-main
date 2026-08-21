@@ -831,7 +831,7 @@ const initServiceMarquee = () => {
 
 
 /* =========================================================
-   REFRESH AOS
+   REFRESH SERVICE LAYOUT
 ========================================================= */
 
 const refreshServiceLayout = () => {
@@ -840,14 +840,6 @@ const refreshServiceLayout = () => {
             slider.swiper.update();
         }
     });
-
-
-    if (
-        typeof window.AOS !== "undefined" &&
-        typeof window.AOS.refresh === "function"
-    ) {
-        window.AOS.refresh();
-    }
 };
 
 

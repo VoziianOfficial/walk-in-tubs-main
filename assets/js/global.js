@@ -711,33 +711,152 @@ const initContactForms = () => {
 
 
 /* =========================================================
-   AOS
+   REVEAL
 ========================================================= */
 
-const initAOS = () => {
-    if (
-        typeof window.AOS === "undefined" ||
-        !qs("[data-aos]")
-    ) {
+const initReveal = () => {
+    const selectors = [
+        "main .section-eyebrow",
+        "main .section-title",
+        "main .section-copy",
+        "main .button",
+        "main .about__media",
+        "main .options__media",
+        "main .contact__media",
+        "main .quick-feature",
+        "main .process-card",
+        "main .service-feature",
+        "main .installation-guide__visual",
+        "main .installation-comfort__main-image",
+        "main .installation-step",
+        "main .installation-benefit",
+        "main .service-card",
+        "main .faq-item",
+        "main .legal-section",
+        "main .legal-next__link"
+    ].join(",");
+
+    const excludedSelectors = [
+        ".hero",
+        ".service-hero",
+        ".legal-hero",
+        ".swiper",
+        ".swiper-wrapper",
+        ".swiper-slide",
+        ".site-header",
+        ".site-menu",
+        ".legal-nav",
+        ".legal-confirmation",
+        ".flip-cards",
+        ".flip-card",
+        ".parallax-showcase",
+        ".service-parallax",
+        "[data-marquee]",
+        "[data-modal]",
+        "[data-assembly-grid]",
+        "form"
+    ].join(",");
+
+    const cardSelectors = [
+        ".quick-feature",
+        ".process-card",
+        ".service-feature",
+        ".installation-step",
+        ".installation-benefit",
+        ".service-card",
+        ".faq-item",
+        ".legal-section",
+        ".legal-next__link"
+    ].join(",");
+
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const revealElements = qsa(selectors).filter((element) => {
+        if (
+            element.classList.contains("reveal") ||
+            element.closest(excludedSelectors)
+        ) {
+            return false;
+        }
+
+        const style = window.getComputedStyle(element);
+
+        return (
+            style.display !== "none" &&
+            style.visibility !== "hidden" &&
+            element.offsetWidth > 0 &&
+            element.offsetHeight > 0 &&
+            style.position !== "sticky" &&
+            style.position !== "fixed" &&
+            style.transform === "none" &&
+            style.animationName === "none"
+        );
+    });
+
+    if (!revealElements.length) {
         return;
     }
 
+    const revealGroups = new Map();
 
-    const prefersReducedMotion =
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches;
+    revealElements.forEach((element) => {
+        element.classList.add("reveal");
 
+        if (!element.matches(cardSelectors) || !element.parentElement) {
+            return;
+        }
 
-    window.AOS.init({
-        duration: 780,
-        easing: "ease-out-cubic",
-        once: true,
-        mirror: false,
-        offset: 70,
-        delay: 0,
-        anchorPlacement: "top-bottom",
-        disable: prefersReducedMotion
+        const parent = element.parentElement;
+        const index = revealGroups.get(parent) || 0;
+        revealGroups.set(parent, index + 1);
+        element.style.setProperty(
+            "--reveal-delay",
+            `${Math.min(index, 2) * 60}ms`
+        );
+    });
+
+    if (
+        prefersReducedMotion ||
+        typeof window.IntersectionObserver === "undefined"
+    ) {
+        revealElements.forEach((element) => {
+            element.classList.add("is-visible");
+        });
+
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        (entries, currentObserver) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                const element = entry.target;
+                element.classList.add("is-reveal-ready");
+
+                window.requestAnimationFrame(() => {
+                    element.classList.add("is-visible");
+                });
+
+                window.setTimeout(() => {
+                    element.classList.remove("is-reveal-ready");
+                }, 700);
+
+                currentObserver.unobserve(element);
+            });
+        },
+        {
+            threshold: 0.12,
+            rootMargin: "0px"
+        }
+    );
+
+    revealElements.forEach((element) => {
+        observer.observe(element);
     });
 };
 
@@ -847,7 +966,7 @@ const initGlobal = () => {
 
     initContactForms();
 
-    initAOS();
+    initReveal();
 
     initFlipCards();
 
