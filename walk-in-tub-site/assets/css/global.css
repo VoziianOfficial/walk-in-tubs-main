@@ -756,7 +756,6 @@ textarea:focus:not(:focus-visible) {
 
     display: flex;
     align-items: center;
-    gap: 24px;
 
     padding-block: 12px;
 
@@ -784,17 +783,6 @@ textarea:focus:not(:focus-visible) {
     background: var(--color-gold);
 
     transition: width var(--transition-base);
-}
-
-.site-menu__nav a span {
-    width: 24px;
-
-    color: var(--color-text-muted);
-
-    font-family: var(--font-body);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
 }
 
 .site-menu__nav a:hover {
@@ -1762,12 +1750,6 @@ textarea:focus:not(:focus-visible) {
         padding-block: 10px;
 
         font-size: clamp(38px, 13vw, 52px);
-    }
-
-    .site-menu__nav a span {
-        width: 20px;
-
-        font-size: 8px;
     }
 
     .site-menu__bottom {

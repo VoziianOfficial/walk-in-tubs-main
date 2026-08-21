@@ -204,9 +204,7 @@
 .legal-nav nav a {
     position: relative;
 
-    display: grid;
-    grid-template-columns: 28px minmax(0, 1fr);
-    gap: 13px;
+    display: block;
 
     padding: 14px 0;
 
@@ -237,14 +235,6 @@
     transition: width var(--transition-base);
 }
 
-.legal-nav nav a span {
-    color: var(--color-gold-dark);
-
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-}
-
 .legal-nav nav a:hover {
     padding-left: 5px;
 
@@ -273,28 +263,14 @@
 
 .legal-section {
     display: grid;
-    grid-template-columns: 64px minmax(0, 1fr);
-    gap: 28px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
 
     scroll-margin-top: calc(var(--header-height) + 42px);
 
     padding: 42px 0 48px;
 
     border-bottom: 1px solid var(--color-line);
-}
-
-
-/* Section number */
-
-.legal-section__number {
-    padding-top: 8px;
-
-    color: var(--color-gold-dark);
-
-    font-size: 9px;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: 0.16em;
 }
 
 
@@ -632,15 +608,12 @@
     }
 
     .legal-nav nav a {
-        grid-template-columns: 24px minmax(0, 1fr);
-
         font-size: 10px;
     }
 
     .legal-section {
-        grid-template-columns: 48px minmax(0, 1fr);
-
-        gap: 20px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
 
         padding: 38px 0 42px;
     }
@@ -817,17 +790,10 @@
     /* Sections */
 
     .legal-section {
-        grid-template-columns: 30px minmax(0, 1fr);
-
-        gap: 12px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
 
         padding: 30px 0 34px;
-    }
-
-    .legal-section__number {
-        padding-top: 6px;
-
-        font-size: 8px;
     }
 
     .legal-section__body h2 {

@@ -284,9 +284,7 @@
 .service-feature {
     position: relative;
 
-    display: grid;
-    grid-template-columns: 42px minmax(0, 1fr);
-    gap: 22px;
+    display: block;
 
     min-height: 128px;
     padding: 26px 22px;
@@ -307,16 +305,6 @@
     width: 1px;
 
     background: var(--color-line);
-}
-
-.service-feature > span {
-    padding-top: 5px;
-
-    color: var(--color-gold-dark);
-
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
 }
 
 .service-feature h2 {
@@ -438,7 +426,7 @@
 
 .installation-guide__points article {
     display: grid;
-    grid-template-columns: 48px minmax(0, 0.8fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
     align-items: start;
     gap: 20px;
 
@@ -451,16 +439,6 @@
 
 .installation-guide__points article:hover {
     padding-left: 8px;
-}
-
-.installation-guide__points span {
-    padding-top: 4px;
-
-    color: var(--color-gold-dark);
-
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
 }
 
 .installation-guide__points h3 {
@@ -620,18 +598,6 @@
     padding: 24px 26px 28px;
 }
 
-.installation-feature-card__content > span {
-    display: block;
-
-    margin-bottom: 18px;
-
-    color: var(--color-gold-dark);
-
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-}
-
 .installation-feature-card__content h3 {
     margin: 0 0 13px;
 
@@ -783,21 +749,6 @@
 
 .installation-process__timeline {
     position: relative;
-
-    padding-left: 58px;
-}
-
-.installation-process__timeline::before {
-    content: "";
-
-    position: absolute;
-    top: 17px;
-    bottom: 17px;
-    left: 17px;
-
-    width: 1px;
-
-    background: var(--color-line);
 }
 
 .installation-process-step {
@@ -819,41 +770,6 @@
 
 .installation-process-step:hover {
     transform: translateX(8px);
-}
-
-.installation-process-step__number {
-    position: absolute;
-    top: 0;
-    left: -58px;
-
-    display: grid;
-    place-items: center;
-
-    width: 40px;
-    height: 40px;
-
-    color: var(--color-gold-dark);
-    background: var(--color-surface);
-
-    border: 1px solid rgba(173, 129, 65, 0.55);
-    border-radius: 50%;
-
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-
-    transition:
-        color var(--transition-base),
-        background-color var(--transition-base),
-        border-color var(--transition-base);
-}
-
-.installation-process-step:hover
-.installation-process-step__number {
-    color: var(--color-white);
-
-    border-color: var(--color-gold-dark);
-    background: var(--color-gold-dark);
 }
 
 .installation-process-step__content {
@@ -1323,8 +1239,6 @@
     }
 
     .service-feature {
-        grid-template-columns: 34px minmax(0, 1fr);
-
         padding-inline: 22px;
     }
 
@@ -1696,12 +1610,8 @@
     }
 
     .service-feature {
-        grid-template-columns: 28px minmax(0, 1fr);
-
         min-height: 108px;
         padding: 20px 12px;
-
-        gap: 10px;
     }
 
     .service-feature h2 {
@@ -1754,9 +1664,9 @@
     }
 
     .installation-guide__points article {
-        grid-template-columns: 34px minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr);
 
-        gap: 9px 14px;
+        gap: 9px;
 
         padding: 19px 0;
     }
@@ -1766,8 +1676,6 @@
     }
 
     .installation-guide__points p {
-        grid-column: 2;
-
         font-size: 11px;
     }
 
@@ -1880,14 +1788,6 @@
         gap: 30px;
     }
 
-    .installation-process__timeline {
-        padding-left: 52px;
-    }
-
-    .installation-process__timeline::before {
-        left: 16px;
-    }
-
     .installation-process-step {
         min-height: auto;
         padding-bottom: 28px;
@@ -1895,13 +1795,6 @@
 
     .installation-process-step:not(:last-child) {
         margin-bottom: 16px;
-    }
-
-    .installation-process-step__number {
-        left: -52px;
-
-        width: 34px;
-        height: 34px;
     }
 
     .installation-process-step__content {
