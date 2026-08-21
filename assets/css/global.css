@@ -1836,15 +1836,62 @@ textarea:focus:not(:focus-visible) {
     }
 
     .site-menu__nav {
+        align-items: center;
+        gap: 8px;
+
         padding-block: 28px;
+
+        text-align: center;
     }
 
     .site-menu__nav a {
         gap: 17px;
+        justify-content: center;
 
-        padding-block: 10px;
+        width: min(100%, 340px);
+        min-height: 58px;
+        padding: 10px 22px;
+
+        border: 1px solid transparent;
+        border-radius: var(--radius-pill);
+        background:
+            linear-gradient(
+                90deg,
+                rgba(199, 155, 89, 0),
+                rgba(199, 155, 89, 0.1),
+                rgba(199, 155, 89, 0)
+            );
 
         font-size: clamp(38px, 13vw, 52px);
+
+        transition:
+            color var(--transition-base),
+            border-color var(--transition-base),
+            background-color var(--transition-base),
+            transform var(--transition-base);
+    }
+
+    .site-menu__nav a::after {
+        left: 50%;
+        right: auto;
+        bottom: 6px;
+
+        height: 2px;
+
+        transform: translateX(-50%);
+    }
+
+    .site-menu__nav a:hover,
+    .site-menu__nav a:focus-visible {
+        padding-left: 22px;
+
+        border-color: rgba(199, 155, 89, 0.3);
+        background-color: rgba(255, 255, 255, 0.38);
+        transform: translateY(-2px);
+    }
+
+    .site-menu__nav a:focus-visible::after {
+        width: 42px;
     }
 
     .site-menu__bottom {
