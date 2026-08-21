@@ -777,6 +777,8 @@
 
     overflow: hidden;
 
+    border-radius: clamp(18px, 2.1vw, 28px);
+
     background: #31312d;
 }
 
@@ -2095,6 +2097,8 @@
 
     .parallax-showcase__frame {
         min-height: 380px;
+
+        border-radius: 18px;
     }
 
     .parallax-showcase__media {

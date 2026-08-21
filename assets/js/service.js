@@ -504,6 +504,127 @@ const initServiceAccordion = () => {
 
 
 /* =========================================================
+   SERVICE HERO PARALLAX
+========================================================= */
+
+const initServiceHeroParallax = () => {
+    const heroes = serviceQueryAll(
+        "[data-service-hero-parallax]"
+    );
+
+    const disableOnMobile = window.matchMedia(
+        "(max-width: 640px)"
+    );
+
+
+    if (
+        !heroes.length ||
+        serviceReducedMotion ||
+        disableOnMobile.matches
+    ) {
+        heroes.forEach((hero) => {
+            hero.style.setProperty(
+                "--service-hero-bg-offset",
+                "0px"
+            );
+        });
+
+        return;
+    }
+
+
+    let ticking = false;
+
+
+    const clamp = (
+        value,
+        minimum,
+        maximum
+    ) => Math.min(
+        Math.max(value, minimum),
+        maximum
+    );
+
+
+    const updateHeroParallax = () => {
+        const viewportHeight =
+            window.innerHeight;
+
+
+        heroes.forEach((hero) => {
+            const rect =
+                hero.getBoundingClientRect();
+
+
+            if (
+                rect.bottom < 0 ||
+                rect.top > viewportHeight
+            ) {
+                return;
+            }
+
+
+            const progress = clamp(
+                (
+                    rect.top +
+                    rect.height / 2 -
+                    viewportHeight / 2
+                ) /
+                    (
+                        viewportHeight +
+                        rect.height
+                    ),
+                -1,
+                1
+            );
+
+            const offset =
+                Math.round(progress * -34);
+
+
+            hero.style.setProperty(
+                "--service-hero-bg-offset",
+                `${offset}px`
+            );
+        });
+
+
+        ticking = false;
+    };
+
+
+    const requestHeroUpdate = () => {
+        if (ticking) {
+            return;
+        }
+
+
+        ticking = true;
+
+        window.requestAnimationFrame(
+            updateHeroParallax
+        );
+    };
+
+
+    window.addEventListener(
+        "scroll",
+        requestHeroUpdate,
+        {
+            passive: true
+        }
+    );
+
+    window.addEventListener(
+        "resize",
+        requestHeroUpdate
+    );
+
+    updateHeroParallax();
+};
+
+
+/* =========================================================
    SERVICE PARALLAX
 ========================================================= */
 
@@ -735,6 +856,8 @@ const refreshServiceLayout = () => {
 ========================================================= */
 
 const initServicePage = () => {
+    initServiceHeroParallax();
+
     initServiceSlider();
 
     initServiceAccordion();
