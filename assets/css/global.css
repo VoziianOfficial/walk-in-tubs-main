@@ -3124,6 +3124,40 @@ textarea:focus:not(:focus-visible) {
 }
 
 
+@media (max-width: 1024px), (hover: none) {
+    .flip-card {
+        cursor: default;
+        perspective: none;
+    }
+
+    .flip-card__inner {
+        transform: none !important;
+        transform-style: flat;
+
+        transition: none;
+    }
+
+    .flip-card:hover .flip-card__inner,
+    .flip-card:focus-visible .flip-card__inner,
+    .flip-card.is-flipped .flip-card__inner {
+        transform: none;
+    }
+
+    .flip-card__face {
+        -webkit-backface-visibility: visible;
+        backface-visibility: visible;
+    }
+
+    .flip-card__face--back {
+        display: none;
+    }
+
+    .flip-card__cta {
+        display: none;
+    }
+}
+
+
 /* =========================================================
    LEGAL CONFIRMATION
 ========================================================= */

@@ -872,17 +872,16 @@ const initFlipCards = () => {
         return;
     }
 
-    const isTouch = window.matchMedia("(hover: none)").matches;
+    const isTouchLayout = window.matchMedia(
+        "(max-width: 1024px), (hover: none)"
+    ).matches;
 
-    if (!isTouch) {
+    if (!isTouchLayout) {
         return;
     }
 
     cards.forEach((card) => {
-        card.addEventListener("click", (event) => {
-            event.preventDefault();
-            card.classList.toggle("is-flipped");
-        });
+        card.classList.remove("is-flipped");
     });
 };
 
