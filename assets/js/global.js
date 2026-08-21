@@ -701,6 +701,32 @@ const initAOS = () => {
 
 
 /* =========================================================
+   FLIP CARDS
+========================================================= */
+
+const initFlipCards = () => {
+    const cards = qsa(".flip-card");
+
+    if (!cards.length) {
+        return;
+    }
+
+    const isTouch = window.matchMedia("(hover: none)").matches;
+
+    if (!isTouch) {
+        return;
+    }
+
+    cards.forEach((card) => {
+        card.addEventListener("click", (event) => {
+            event.preventDefault();
+            card.classList.toggle("is-flipped");
+        });
+    });
+};
+
+
+/* =========================================================
    IMAGE ERROR SAFETY
 ========================================================= */
 
@@ -734,6 +760,8 @@ const initGlobal = () => {
     initContactForms();
 
     initAOS();
+
+    initFlipCards();
 
     initImageSafety();
 };
