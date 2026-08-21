@@ -401,20 +401,6 @@
     transform: scale(1.035);
 }
 
-.installation-guide__image-note {
-    max-width: 380px;
-    margin: 21px 0 0 auto;
-
-    color: var(--color-text-muted);
-
-    font-family: var(--font-display);
-    font-size: 19px;
-    font-style: italic;
-    line-height: 1.35;
-
-    text-align: right;
-}
-
 .installation-guide__content {
     min-width: 0;
     max-width: 690px;
@@ -1430,12 +1416,6 @@
 
     .installation-guide__image::before {
         inset: 10px;
-    }
-
-    .installation-guide__image-note {
-        max-width: 280px;
-
-        font-size: 17px;
     }
 
     .installation-guide__points {
