@@ -2364,7 +2364,11 @@
     .contact__media {
         min-height: 0;
         aspect-ratio: auto;
-        height: clamp(160px, 44vw, 220px);
+        height: clamp(135px, 36vw, 180px);
+    }
+
+    .contact__media img {
+        object-position: center 32%;
     }
 
     .contact__content {
