@@ -15,6 +15,104 @@ const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
 ).matches;
 
+const updateSwiperWhenReady = (swiper, slider) => {
+    if (!swiper || !slider) {
+        return;
+    }
+
+
+    const update = () => {
+        if (!swiper.destroyed) {
+            swiper.update();
+        }
+    };
+
+
+    window.requestAnimationFrame(update);
+
+    homeQueryAll("img", slider).forEach((image) => {
+        if (image.complete) {
+            return;
+        }
+
+
+        image.addEventListener("load", update, {
+            once: true
+        });
+    });
+};
+
+const syncAutoSwiperEndOffset = (swiper, slider) => {
+    if (!swiper || !slider) {
+        return;
+    }
+
+
+    const sync = () => {
+        if (swiper.destroyed) {
+            return;
+        }
+
+
+        const firstSlide = homeQuery(
+            ".swiper-slide",
+            slider
+        );
+
+        if (!firstSlide) {
+            return;
+        }
+
+
+        const sliderWidth =
+            slider.getBoundingClientRect().width;
+
+        const slideWidth =
+            firstSlide.getBoundingClientRect().width;
+
+        const offset = Math.max(
+            0,
+            Math.round(sliderWidth - slideWidth)
+        );
+
+
+        if (
+            Math.abs(
+                (swiper.params.slidesOffsetAfter || 0) -
+                    offset
+            ) < 1
+        ) {
+            return;
+        }
+
+
+        swiper.params.slidesOffsetAfter = offset;
+        swiper.update();
+    };
+
+
+    window.requestAnimationFrame(sync);
+
+    if (typeof ResizeObserver !== "undefined") {
+        const observer = new ResizeObserver(sync);
+        observer.observe(slider);
+    } else {
+        window.addEventListener("resize", sync);
+    }
+
+
+    homeQueryAll("img", slider).forEach((image) => {
+        if (image.complete) {
+            return;
+        }
+
+
+        image.addEventListener("load", sync, {
+            once: true
+        });
+    });
+};
+
 
 /* =========================================================
    HERO SWIPER
@@ -55,11 +153,17 @@ const initHeroSlider = () => {
     }
 
 
-    new window.Swiper(slider, {
+    const heroSwiper = new window.Swiper(slider, {
         slidesPerView: 1,
         spaceBetween: 0,
 
         speed: prefersReducedMotion ? 0 : 1050,
+
+        updateOnWindowResize: true,
+        resizeObserver: true,
+        observer: true,
+        observeParents: true,
+        roundLengths: true,
 
         loop: slides.length > 1,
 
@@ -101,6 +205,8 @@ const initHeroSlider = () => {
                 "Go to hero slide {{index}}"
         }
     });
+
+    updateSwiperWhenReady(heroSwiper, slider);
 };
 
 
@@ -132,11 +238,17 @@ const initTubTypesSlider = () => {
     }
 
 
-    new window.Swiper(slider, {
+    const tubSwiper = new window.Swiper(slider, {
         slidesPerView: 1,
         spaceBetween: 28,
 
         speed: prefersReducedMotion ? 0 : 850,
+
+        updateOnWindowResize: true,
+        resizeObserver: true,
+        observer: true,
+        observeParents: true,
+        roundLengths: true,
 
         watchOverflow: true,
 
@@ -181,6 +293,8 @@ const initTubTypesSlider = () => {
                 "Next walk-in tub option"
         }
     });
+
+    updateSwiperWhenReady(tubSwiper, slider);
 };
 
 
@@ -218,12 +332,19 @@ const initInspirationSlider = () => {
     }
 
 
-    new window.Swiper(slider, {
+    const inspirationSwiper = new window.Swiper(slider, {
         slidesPerView: "auto",
 
         spaceBetween: 24,
+        slidesOffsetAfter: 0,
 
         speed: prefersReducedMotion ? 0 : 900,
+
+        updateOnWindowResize: true,
+        resizeObserver: true,
+        observer: true,
+        observeParents: true,
+        roundLengths: true,
 
         grabCursor: slides.length > 1,
 
@@ -265,6 +386,10 @@ const initInspirationSlider = () => {
                 "Next bathroom inspiration"
         }
     });
+
+    syncAutoSwiperEndOffset(inspirationSwiper, slider);
+
+    updateSwiperWhenReady(inspirationSwiper, slider);
 };
 
 
@@ -758,6 +883,13 @@ const initMarquee = () => {
 ========================================================= */
 
 const refreshHomeLayout = () => {
+    homeQueryAll(".swiper").forEach((slider) => {
+        if (slider.swiper && !slider.swiper.destroyed) {
+            slider.swiper.update();
+        }
+    });
+
+
     if (
         typeof window.AOS !== "undefined" &&
         typeof window.AOS.refresh === "function"

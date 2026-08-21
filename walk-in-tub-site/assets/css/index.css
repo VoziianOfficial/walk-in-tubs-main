@@ -15,11 +15,16 @@
 
 .hero__frame {
     position: relative;
+
+    min-width: 0;
 }
 
 .hero-slider {
     position: relative;
 
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     overflow: hidden;
 
     background: #3c3a34;
@@ -27,11 +32,15 @@
 
 .hero-slider .swiper-wrapper {
     align-items: stretch;
+
+    min-width: 0;
 }
 
 .hero-slide {
     position: relative;
 
+    width: 100%;
+    min-width: 0;
     min-height: clamp(620px, 77vh, 880px);
 
     overflow: hidden;
@@ -99,6 +108,7 @@
     justify-content: center;
 
     width: min(100% - 80px, 720px);
+    min-width: 0;
     min-height: clamp(620px, 77vh, 880px);
     margin-left: clamp(42px, 6vw, 100px);
     padding: 96px 0 110px;
@@ -820,17 +830,25 @@
 }
 
 .tub-types-slider {
-    overflow: visible;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
 }
 
 .tub-types-slider .swiper-wrapper {
     align-items: stretch;
+
+    min-width: 0;
 }
 
 .tub-card {
     display: grid;
     grid-template-columns: minmax(0, 1.08fr) minmax(250px, 0.92fr);
 
+    width: 100%;
+    min-width: 0;
     min-height: 490px;
 
     overflow: hidden;
@@ -862,6 +880,7 @@
     flex-direction: column;
     justify-content: center;
 
+    min-width: 0;
     padding: clamp(40px, 5vw, 72px);
 }
 
@@ -1183,11 +1202,17 @@
 }
 
 .inspiration-slider {
-    overflow: visible;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
 }
 
 .inspiration-slide {
     width: min(64vw, 860px);
+    max-width: 100%;
+    min-width: 0;
 
     overflow: hidden;
 

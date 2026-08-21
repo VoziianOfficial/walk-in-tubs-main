@@ -543,15 +543,23 @@
 }
 
 .installation-feature-slider {
-    overflow: visible;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
 }
 
 .installation-feature-slider .swiper-wrapper {
     align-items: stretch;
+
+    min-width: 0;
 }
 
 .installation-feature-card {
     width: min(34vw, 465px);
+    max-width: 100%;
+    min-width: 0;
 
     overflow: hidden;
 
@@ -587,6 +595,7 @@
 }
 
 .installation-feature-card__content {
+    min-width: 0;
     min-height: 250px;
     padding: 30px 31px 36px;
 }

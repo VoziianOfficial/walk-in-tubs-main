@@ -15,6 +15,104 @@ const serviceReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
 ).matches;
 
+const updateServiceSwiperWhenReady = (swiper, slider) => {
+    if (!swiper || !slider) {
+        return;
+    }
+
+
+    const update = () => {
+        if (!swiper.destroyed) {
+            swiper.update();
+        }
+    };
+
+
+    window.requestAnimationFrame(update);
+
+    serviceQueryAll("img", slider).forEach((image) => {
+        if (image.complete) {
+            return;
+        }
+
+
+        image.addEventListener("load", update, {
+            once: true
+        });
+    });
+};
+
+const syncServiceAutoSwiperEndOffset = (swiper, slider) => {
+    if (!swiper || !slider) {
+        return;
+    }
+
+
+    const sync = () => {
+        if (swiper.destroyed) {
+            return;
+        }
+
+
+        const firstSlide = serviceQuery(
+            ".swiper-slide",
+            slider
+        );
+
+        if (!firstSlide) {
+            return;
+        }
+
+
+        const sliderWidth =
+            slider.getBoundingClientRect().width;
+
+        const slideWidth =
+            firstSlide.getBoundingClientRect().width;
+
+        const offset = Math.max(
+            0,
+            Math.round(sliderWidth - slideWidth)
+        );
+
+
+        if (
+            Math.abs(
+                (swiper.params.slidesOffsetAfter || 0) -
+                    offset
+            ) < 1
+        ) {
+            return;
+        }
+
+
+        swiper.params.slidesOffsetAfter = offset;
+        swiper.update();
+    };
+
+
+    window.requestAnimationFrame(sync);
+
+    if (typeof ResizeObserver !== "undefined") {
+        const observer = new ResizeObserver(sync);
+        observer.observe(slider);
+    } else {
+        window.addEventListener("resize", sync);
+    }
+
+
+    serviceQueryAll("img", slider).forEach((image) => {
+        if (image.complete) {
+            return;
+        }
+
+
+        image.addEventListener("load", sync, {
+            once: true
+        });
+    });
+};
+
 
 /* =========================================================
    SERVICE FEATURE SWIPER
@@ -57,12 +155,19 @@ const initServiceSlider = () => {
     }
 
 
-    new window.Swiper(slider, {
+    const serviceSwiper = new window.Swiper(slider, {
         slidesPerView: "auto",
 
         spaceBetween: 28,
+        slidesOffsetAfter: 0,
 
         speed: serviceReducedMotion ? 0 : 850,
+
+        updateOnWindowResize: true,
+        resizeObserver: true,
+        observer: true,
+        observeParents: true,
+        roundLengths: true,
 
         grabCursor: slides.length > 1,
 
@@ -103,6 +208,10 @@ const initServiceSlider = () => {
             nextSlideMessage: "Next feature"
         }
     });
+
+    syncServiceAutoSwiperEndOffset(serviceSwiper, slider);
+
+    updateServiceSwiperWhenReady(serviceSwiper, slider);
 };
 
 
@@ -605,6 +714,13 @@ const initServiceMarquee = () => {
 ========================================================= */
 
 const refreshServiceLayout = () => {
+    serviceQueryAll(".swiper").forEach((slider) => {
+        if (slider.swiper && !slider.swiper.destroyed) {
+            slider.swiper.update();
+        }
+    });
+
+
     if (
         typeof window.AOS !== "undefined" &&
         typeof window.AOS.refresh === "function"

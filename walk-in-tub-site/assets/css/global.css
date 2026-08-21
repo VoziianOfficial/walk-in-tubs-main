@@ -156,6 +156,7 @@ textarea:focus:not(:focus-visible) {
         calc(100% - (var(--container-padding) * 2)),
         var(--container)
     );
+    min-width: 0;
     margin-inline: auto;
 }
 
@@ -260,6 +261,10 @@ textarea:focus:not(:focus-visible) {
     grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.55fr);
     align-items: end;
     gap: 70px;
+}
+
+.section-heading--split > * {
+    min-width: 0;
 }
 
 .section-heading--split .section-copy {
@@ -1404,10 +1409,27 @@ textarea:focus:not(:focus-visible) {
 
 .swiper {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    contain: layout paint;
+}
+
+.swiper-wrapper {
+    min-width: 0;
 }
 
 .swiper-slide {
+    max-width: 100%;
+    min-width: 0;
     height: auto;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
 }
 
 
