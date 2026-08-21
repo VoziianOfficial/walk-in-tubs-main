@@ -695,6 +695,12 @@
     top: 50%;
     left: 50%;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
     width: min(calc(100% - 76px), 680px);
 
     text-align: center;
@@ -704,12 +710,14 @@
 
 .service-parallax__content .section-eyebrow {
     margin-right: auto;
+    margin-bottom: 0;
     margin-left: auto;
 }
 
 .service-parallax__content .section-title {
     max-width: 660px;
     margin-right: auto;
+    margin-bottom: 0;
     margin-left: auto;
 
     font-size: clamp(54px, 5.6vw, 90px);
@@ -717,12 +725,20 @@
 
 .service-parallax__content > p:not(.section-eyebrow) {
     max-width: 510px;
-    margin: 0 auto 24px;
+    margin: 0 auto;
 
     color: rgba(255, 255, 255, 0.72);
 
     font-size: 13px;
     line-height: 1.65;
+}
+
+.service-parallax__content[data-aos="fade-up"] {
+    transform: translate3d(-50%, calc(-50% + 100px), 0);
+}
+
+.service-parallax__content[data-aos][data-aos].aos-animate {
+    transform: translate3d(-50%, -50%, 0);
 }
 
 
@@ -1630,6 +1646,7 @@
         bottom: auto;
         left: 50%;
 
+        gap: 18px;
         width: calc(100% - 40px);
     }
 
