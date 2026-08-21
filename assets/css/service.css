@@ -1161,6 +1161,17 @@
 ========================================================= */
 
 @media (max-width: 1024px) {
+    h1,
+    h2,
+    .section-title,
+    .service-hero__title {
+        max-width: min(100%, 720px);
+        margin-inline: auto;
+
+        text-align: center;
+        overflow-wrap: break-word;
+    }
+
     /* Hero */
 
     .service-hero {
@@ -1180,6 +1191,17 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .service-feature {
+        flex-direction: column;
+        justify-content: center;
+
+        text-align: center;
+    }
+
+    .service-feature h2 {
+        margin-inline: auto;
+    }
+
 
     /* Guide */
 
@@ -1188,7 +1210,20 @@
     }
 
     .installation-guide__inner {
+        grid-template-columns: minmax(0, 1fr);
         gap: 42px;
+    }
+
+    .installation-guide__visual,
+    .installation-guide__image {
+        max-width: 100%;
+        margin-inline: auto;
+
+        justify-self: center;
+
+        left: auto;
+        right: auto;
+        transform: none;
     }
 
     .installation-guide__points article {
@@ -1248,11 +1283,20 @@
     }
 
     .installation-comfort__inner {
+        grid-template-columns: minmax(0, 1fr);
         gap: 42px;
     }
 
     .installation-comfort__visual {
-        padding-left: 42px;
+        max-width: 100%;
+        margin-inline: auto;
+        padding-left: 0;
+
+        justify-self: center;
+
+        left: auto;
+        right: auto;
+        transform: none;
     }
 
 
@@ -1302,11 +1346,26 @@
 
     .installation-guide__visual {
         width: min(84%, 620px);
+        max-width: 100%;
+        margin-inline: auto;
+
+        justify-self: center;
+    }
+
+    .installation-guide__image {
+        max-width: 100%;
+        margin-inline: auto;
+
+        left: auto;
+        right: auto;
+        transform: none;
     }
 
     .installation-guide__content {
         max-width: 720px;
-        margin-left: auto;
+        margin-inline: auto;
+
+        text-align: center;
     }
 
 
@@ -1341,12 +1400,16 @@
 
     .installation-comfort__content {
         max-width: 700px;
+        margin-inline: auto;
+
+        text-align: center;
     }
 
     .installation-comfort__visual {
         width: min(88%, 680px);
-        margin-left: auto;
-        padding-left: 58px;
+        max-width: 100%;
+        margin-inline: auto;
+        padding-left: 0;
     }
 
 }
@@ -1412,6 +1475,8 @@
 
     .installation-guide__visual {
         width: 90%;
+        max-width: 100%;
+        margin-inline: auto;
     }
 
     .installation-guide__image::before {
@@ -1593,7 +1658,9 @@
 
     .installation-comfort__visual {
         width: 92%;
-        padding: 0 0 48px 34px;
+        max-width: 100%;
+        margin-inline: auto;
+        padding: 0 0 48px;
     }
 
     .installation-comfort__main-image::after {
@@ -1665,7 +1732,7 @@
     }
 
     .installation-comfort__visual {
-        padding-left: 32px;
+        padding-left: 0;
     }
 
     .installation-comfort__small-image {

@@ -47,24 +47,35 @@ const getFocusableElements = (container) => {
 ========================================================= */
 
 const applySiteConfig = () => {
-    const config = window.SITE_CONFIG;
-
-    if (!config) {
+    if (!window.SITE_CONFIG) {
         console.warn("SITE_CONFIG is not available.");
         return;
     }
+
+    const config = window.SITE_CONFIG;
 
 
     /* Browser title */
 
     if (config.browserTitle) {
-        document.title = config.browserTitle;
+        document.title = window.SITE_CONFIG.browserTitle;
     }
 
 
     /* Favicon */
 
-    const favicon = qs("#site-favicon");
+    let favicon =
+        qs("#site-favicon") ||
+        qs('link[rel~="icon"]');
+
+    if (!favicon && config.favicon) {
+        favicon = document.createElement("link");
+        favicon.id = "site-favicon";
+        favicon.rel = "icon";
+        favicon.type = "image/svg+xml";
+        favicon.sizes = "any";
+        document.head.appendChild(favicon);
+    }
 
     if (favicon && config.favicon) {
         favicon.setAttribute("href", config.favicon);
@@ -91,6 +102,18 @@ const applySiteConfig = () => {
 
         if (typeof value === "string") {
             element.setAttribute("src", value);
+        }
+    });
+
+
+    /* Accessible attributes */
+
+    qsa("[data-config-alt]").forEach((element) => {
+        const configKey = element.dataset.configAlt;
+        const value = getConfigValue(configKey);
+
+        if (typeof value === "string") {
+            element.setAttribute("alt", value);
         }
     });
 

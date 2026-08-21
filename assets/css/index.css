@@ -1598,6 +1598,17 @@
 ========================================================= */
 
 @media (max-width: 1024px) {
+    h1,
+    h2,
+    .section-title,
+    .hero-slide__title {
+        max-width: min(100%, 720px);
+        margin-inline: auto;
+
+        text-align: center;
+        overflow-wrap: break-word;
+    }
+
     .hero {
         padding-top: 18px;
     }
@@ -1626,8 +1637,20 @@
     }
 
     .about__inner {
-        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr);
         gap: 24px;
+    }
+
+    .about__media {
+        max-width: 100%;
+        margin-inline: auto;
+
+        justify-self: center;
+        justify-content: center;
+
+        left: auto;
+        right: auto;
+        transform: none;
     }
 
 
@@ -1674,7 +1697,20 @@
     }
 
     .options__inner {
+        grid-template-columns: minmax(0, 1fr);
         gap: 42px;
+    }
+
+    .options__media {
+        max-width: 100%;
+        margin-inline: auto;
+
+        justify-self: center;
+        justify-content: center;
+
+        left: auto;
+        right: auto;
+        transform: none;
     }
 
     .options__list {
@@ -1803,6 +1839,15 @@
 
     .about__media {
         width: min(82%, 580px);
+        max-width: 100%;
+        margin-inline: auto;
+
+        justify-self: center;
+        justify-content: center;
+
+        left: auto;
+        right: auto;
+        transform: none;
     }
 
     .about__arch {
@@ -1811,7 +1856,9 @@
 
     .about__content {
         max-width: 690px;
-        margin-left: 9%;
+        margin-inline: auto;
+
+        text-align: center;
     }
 
 
@@ -1844,14 +1891,24 @@
     }
 
     .options__media {
-        justify-content: flex-start;
+        justify-content: center;
 
         width: min(82%, 590px);
-        margin-left: auto;
+        max-width: 100%;
+        margin-inline: auto;
+
+        justify-self: center;
+
+        left: auto;
+        right: auto;
+        transform: none;
     }
 
     .options__content {
         max-width: 690px;
+        margin-inline: auto;
+
+        text-align: center;
     }
 
     .options__list {
@@ -2050,6 +2107,8 @@
 
     .about__media {
         width: 88%;
+        max-width: 100%;
+        margin-inline: auto;
     }
 
     .about__arch::after {
@@ -2057,7 +2116,7 @@
     }
 
     .about__content {
-        margin-left: 0;
+        margin-inline: auto;
     }
 
 
@@ -2143,6 +2202,8 @@
 
     .options__media {
         width: 88%;
+        max-width: 100%;
+        margin-inline: auto;
     }
 
     .options__arch::before {

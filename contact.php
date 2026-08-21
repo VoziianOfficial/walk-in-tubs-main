@@ -100,7 +100,7 @@ if (
 
 /* Company name */
 
-$companyName = 'Walk-In Tub Service';
+$companyName = '';
 
 if (
     preg_match(
@@ -114,6 +114,15 @@ if (
     if ($configuredCompanyName !== '') {
         $companyName = $configuredCompanyName;
     }
+}
+
+
+if ($companyName === '') {
+    sendJson(
+        false,
+        'The website company name is not configured correctly.',
+        500
+    );
 }
 
 
@@ -300,7 +309,11 @@ $safeCompanyName = preg_replace(
 );
 
 if (!$safeCompanyName) {
-    $safeCompanyName = 'Walk-In Tub Service';
+    sendJson(
+        false,
+        'The website company name is not configured correctly.',
+        500
+    );
 }
 
 
