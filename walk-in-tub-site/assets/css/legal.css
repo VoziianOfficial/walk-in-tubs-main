@@ -58,7 +58,7 @@
     display: grid;
     grid-template-columns:
         minmax(0, 1.25fr)
-        minmax(320px, 0.75fr);
+        minmax(0, 0.75fr);
     align-items: end;
     gap: clamp(60px, 8vw, 135px);
 }
@@ -154,10 +154,20 @@
 .legal-content__inner {
     display: grid;
     grid-template-columns:
-        minmax(220px, 0.28fr)
+        minmax(0, 0.28fr)
         minmax(0, 0.72fr);
     align-items: start;
     gap: clamp(70px, 9vw, 155px);
+}
+
+.legal-hero__inner > *,
+.legal-hero__meta > div > *,
+.legal-content__inner > *,
+.legal-nav nav > *,
+.legal-section > *,
+.legal-next__inner > *,
+.legal-next__link > * {
+    min-width: 0;
 }
 
 
@@ -291,6 +301,7 @@
 /* Section body */
 
 .legal-section__body {
+    min-width: 0;
     max-width: 830px;
 }
 
@@ -491,7 +502,7 @@
 .legal-next__inner {
     display: grid;
     grid-template-columns:
-        minmax(180px, 0.3fr)
+        minmax(0, 0.3fr)
         minmax(0, 0.7fr);
     align-items: start;
     gap: clamp(60px, 8vw, 130px);
@@ -558,7 +569,7 @@
     .legal-hero__inner {
         grid-template-columns:
             minmax(0, 1.1fr)
-            minmax(300px, 0.7fr);
+            minmax(0, 0.7fr);
 
         gap: 90px;
     }
@@ -569,7 +580,7 @@
 
     .legal-content__inner {
         grid-template-columns:
-            minmax(200px, 0.3fr)
+            minmax(0, 0.3fr)
             minmax(0, 0.7fr);
 
         gap: 95px;
@@ -591,7 +602,7 @@
     }
 
     .legal-hero__inner {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         align-items: start;
 
         gap: 58px;
@@ -614,7 +625,7 @@
 
     .legal-content__inner {
         grid-template-columns:
-            minmax(190px, 0.32fr)
+            minmax(0, 0.32fr)
             minmax(0, 0.68fr);
 
         gap: 65px;
@@ -643,7 +654,7 @@
 
     .legal-next__inner {
         grid-template-columns:
-            minmax(150px, 0.25fr)
+            minmax(0, 0.25fr)
             minmax(0, 0.75fr);
 
         gap: 55px;
@@ -664,7 +675,7 @@
     /* Legal navigation becomes horizontal */
 
     .legal-content__inner {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 62px;
     }
 
@@ -710,7 +721,7 @@
     /* Next */
 
     .legal-next__inner {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 30px;
     }
 
@@ -786,7 +797,7 @@
     }
 
     .legal-nav nav {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .legal-nav nav a {

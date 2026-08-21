@@ -59,7 +59,6 @@ html {
 body {
     margin: 0;
     min-width: 320px;
-    overflow-x: hidden;
 
     color: var(--color-text);
     background: var(--color-bg);
@@ -80,7 +79,8 @@ body.is-locked {
 img,
 picture,
 svg,
-video {
+video,
+iframe {
     display: block;
     max-width: 100%;
 }
@@ -156,8 +156,25 @@ textarea:focus:not(:focus-visible) {
         calc(100% - (var(--container-padding) * 2)),
         var(--container)
     );
+    max-width: var(--container);
     min-width: 0;
     margin-inline: auto;
+}
+
+.site-container > *,
+.section-heading--split > *,
+.site-header__inner > *,
+.site-menu__top > *,
+.site-menu__nav > *,
+.site-menu__bottom > *,
+.slider-controls > *,
+.form-field,
+.modal__top > *,
+.modal-form > *,
+.site-footer__cta > *,
+.site-footer__grid > *,
+.site-footer__copyright > * {
+    min-width: 0;
 }
 
 
@@ -258,7 +275,7 @@ textarea:focus:not(:focus-visible) {
 
 .section-heading--split {
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.55fr);
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.55fr);
     align-items: end;
     gap: 70px;
 }
@@ -579,7 +596,13 @@ textarea:focus:not(:focus-visible) {
     pointer-events: none;
 }
 
+.site-menu:not(.is-open) {
+    width: 0;
+}
+
 .site-menu.is-open {
+    width: 100%;
+
     visibility: visible;
     pointer-events: auto;
 }
@@ -789,7 +812,7 @@ textarea:focus:not(:focus-visible) {
 
 .site-menu__bottom {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 16px;
 
     margin-top: auto;
@@ -1208,7 +1231,7 @@ textarea:focus:not(:focus-visible) {
     z-index: 1;
 
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, auto);
     align-items: end;
     gap: 60px;
 }
@@ -1242,9 +1265,9 @@ textarea:focus:not(:focus-visible) {
 .site-footer__grid {
     display: grid;
     grid-template-columns:
-        minmax(280px, 1.65fr)
-        repeat(3, minmax(130px, 0.7fr))
-        minmax(190px, 0.9fr);
+        minmax(0, 1.65fr)
+        repeat(3, minmax(0, 0.7fr))
+        minmax(0, 0.9fr);
     gap: 54px;
 
     padding-bottom: 64px;
@@ -1412,14 +1435,18 @@ textarea:focus:not(:focus-visible) {
     max-width: 100%;
     min-width: 0;
 
-    contain: layout paint;
+    overflow: clip;
+
+    contain: layout paint size;
 }
 
 .swiper-wrapper {
+    max-width: 100%;
     min-width: 0;
 }
 
 .swiper-slide {
+    width: 100%;
     max-width: 100%;
     min-width: 0;
     height: auto;
@@ -1438,8 +1465,19 @@ textarea:focus:not(:focus-visible) {
 ========================================================= */
 
 [data-aos] {
+    max-width: 100%;
+    min-width: 0;
+
     backface-visibility: hidden;
     transform-style: preserve-3d;
+}
+
+[data-aos=fade-right] {
+    transform: translate3d(0, 24px, 0);
+}
+
+[data-aos=fade-left] {
+    transform: translate3d(0, 24px, 0);
 }
 
 
@@ -1462,8 +1500,8 @@ textarea:focus:not(:focus-visible) {
 
     .site-footer__grid {
         grid-template-columns:
-            minmax(260px, 1.4fr)
-            repeat(2, minmax(130px, 0.75fr));
+            minmax(0, 1.4fr)
+            repeat(2, minmax(0, 0.75fr));
 
         row-gap: 48px;
     }
@@ -1495,7 +1533,7 @@ textarea:focus:not(:focus-visible) {
     }
 
     .section-heading--split {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 20px;
     }
 
@@ -1543,7 +1581,7 @@ textarea:focus:not(:focus-visible) {
     }
 
     .site-footer__cta {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         align-items: start;
         gap: 36px;
     }
@@ -1783,7 +1821,7 @@ textarea:focus:not(:focus-visible) {
     }
 
     .modal-form {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 22px;
     }
 
@@ -1847,7 +1885,7 @@ textarea:focus:not(:focus-visible) {
     }
 
     .site-footer__grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 42px 24px;
 
         padding-bottom: 52px;
@@ -1886,7 +1924,7 @@ textarea:focus:not(:focus-visible) {
     }
 
     .site-footer__grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .site-footer__brand-column,

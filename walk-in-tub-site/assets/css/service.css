@@ -41,7 +41,7 @@
     display: grid;
     grid-template-columns:
         minmax(0, 0.82fr)
-        minmax(480px, 1.18fr);
+        minmax(0, 1.18fr);
     align-items: center;
     gap: clamp(70px, 8vw, 140px);
 }
@@ -266,6 +266,21 @@
     border-bottom: 1px solid var(--color-line);
 }
 
+.service-hero__inner > *,
+.service-feature-strip__grid > *,
+.service-feature > *,
+.installation-guide__inner > *,
+.installation-guide__points article > *,
+.installation-process__inner > *,
+.installation-comfort__inner > *,
+.service-faq__inner > *,
+.service-accordion-item__trigger > *,
+.service-contact__inner > *,
+.service-contact-form > *,
+.service-contact-form__bottom > * {
+    min-width: 0;
+}
+
 .service-feature {
     position: relative;
 
@@ -404,6 +419,7 @@
 }
 
 .installation-guide__content {
+    min-width: 0;
     max-width: 690px;
 }
 
@@ -422,7 +438,7 @@
 
 .installation-guide__points article {
     display: grid;
-    grid-template-columns: 48px minmax(180px, 0.8fr) minmax(0, 1fr);
+    grid-template-columns: 48px minmax(0, 0.8fr) minmax(0, 1fr);
     align-items: start;
     gap: 20px;
 
@@ -473,7 +489,7 @@
 .service-marquee {
     width: 100%;
 
-    overflow: hidden;
+    overflow: clip;
 
     padding: 24px 0;
 
@@ -481,6 +497,10 @@
     border-bottom: 1px solid var(--color-line);
 
     background: #e9e3d8;
+}
+
+.service-marquee__track {
+    max-width: none;
 }
 
 .service-marquee__track {
@@ -537,7 +557,7 @@
 .installation-features {
     padding: 155px 0;
 
-    overflow: hidden;
+    overflow: clip;
 
     background: var(--color-bg);
 }
@@ -547,7 +567,7 @@
     max-width: 100%;
     min-width: 0;
 
-    overflow: hidden;
+    overflow: clip;
 }
 
 .installation-feature-slider .swiper-wrapper {
@@ -739,7 +759,7 @@
 .installation-process__inner {
     display: grid;
     grid-template-columns:
-        minmax(300px, 0.72fr)
+        minmax(0, 0.72fr)
         minmax(0, 1.28fr);
     align-items: start;
     gap: clamp(70px, 9vw, 155px);
@@ -890,6 +910,7 @@
 }
 
 .installation-comfort__content {
+    min-width: 0;
     max-width: 640px;
 }
 
@@ -1027,7 +1048,7 @@
 .service-faq__inner {
     display: grid;
     grid-template-columns:
-        minmax(290px, 0.7fr)
+        minmax(0, 0.7fr)
         minmax(0, 1.3fr);
     align-items: start;
     gap: clamp(70px, 9vw, 155px);
@@ -1231,6 +1252,8 @@
     justify-content: center;
 
     padding: clamp(58px, 7vw, 100px);
+
+    min-width: 0;
 }
 
 .service-contact__content .section-title {
@@ -1290,7 +1313,7 @@
     .service-hero__inner {
         grid-template-columns:
             minmax(0, 0.9fr)
-            minmax(440px, 1.1fr);
+            minmax(0, 1.1fr);
 
         gap: 76px;
     }
@@ -1335,7 +1358,7 @@
     .service-hero__inner {
         grid-template-columns:
             minmax(0, 0.9fr)
-            minmax(390px, 1.1fr);
+            minmax(0, 1.1fr);
 
         gap: 52px;
     }
@@ -1387,7 +1410,7 @@
     .installation-guide__points article {
         grid-template-columns:
             42px
-            minmax(160px, 0.85fr)
+            minmax(0, 0.85fr)
             minmax(0, 1fr);
 
         gap: 16px;
@@ -1423,7 +1446,7 @@
     }
 
     .installation-process__inner {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 50px;
     }
 
@@ -1456,7 +1479,7 @@
     }
 
     .service-faq__inner {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 48px;
     }
 
@@ -1503,7 +1526,7 @@
     }
 
     .service-hero__inner {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 70px;
     }
 
@@ -1540,7 +1563,7 @@
     /* Guide */
 
     .installation-guide__inner {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 72px;
     }
 
@@ -1578,7 +1601,7 @@
     /* Comfort */
 
     .installation-comfort__inner {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 75px;
     }
 
@@ -1596,7 +1619,7 @@
     /* Contact */
 
     .service-contact__inner {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .service-contact__visual {
@@ -1985,7 +2008,7 @@
     }
 
     .service-contact-form {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
 
         gap: 23px;
     }
