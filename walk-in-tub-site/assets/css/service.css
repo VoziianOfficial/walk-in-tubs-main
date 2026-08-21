@@ -1,0 +1,2065 @@
+/* =========================================================
+   SERVICE PAGE
+   Walk-In Tub Installation
+========================================================= */
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.service-hero {
+    position: relative;
+
+    padding: 76px 0 135px;
+
+    overflow: hidden;
+
+    background: var(--color-bg);
+}
+
+.service-hero::before {
+    content: "";
+
+    position: absolute;
+    top: -260px;
+    left: -220px;
+
+    width: 560px;
+    height: 560px;
+
+    border: 1px solid rgba(199, 155, 89, 0.13);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.service-hero__inner {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns:
+        minmax(0, 0.82fr)
+        minmax(480px, 1.18fr);
+    align-items: center;
+    gap: clamp(70px, 8vw, 140px);
+}
+
+.service-hero__content {
+    max-width: 670px;
+
+    padding-left: clamp(0px, 2vw, 28px);
+}
+
+.service-hero__title {
+    max-width: 680px;
+    margin: 0 0 30px;
+
+    color: var(--color-text);
+
+    font-family: var(--font-display);
+    font-size: clamp(72px, 7.1vw, 112px);
+    font-weight: 400;
+    line-height: 0.84;
+    letter-spacing: -0.05em;
+}
+
+.service-hero__title em {
+    display: block;
+
+    color: var(--color-gold-dark);
+
+    font-weight: 400;
+}
+
+.service-hero__copy {
+    max-width: 540px;
+    margin: 0 0 38px;
+
+    color: var(--color-text-soft);
+
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+.service-hero__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.service-hero__text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+
+    padding-bottom: 5px;
+
+    border-bottom: 1px solid rgba(41, 42, 39, 0.42);
+
+    color: var(--color-text);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+
+    transition:
+        color var(--transition-base),
+        border-color var(--transition-base);
+}
+
+.service-hero__text-link span {
+    transition: transform var(--transition-base);
+}
+
+.service-hero__text-link:hover {
+    color: var(--color-gold-dark);
+    border-color: var(--color-gold-dark);
+}
+
+.service-hero__text-link:hover span {
+    transform: translateY(4px);
+}
+
+
+/* Hero visual */
+
+.service-hero__visual {
+    position: relative;
+
+    min-width: 0;
+    padding: 12px 42px 20px 0;
+}
+
+.service-hero__arch {
+    position: relative;
+
+    width: min(100%, 720px);
+    margin-left: auto;
+    aspect-ratio: 0.82;
+
+    overflow: hidden;
+
+    border-radius: 360px 360px 8px 8px;
+
+    background: #ded8ce;
+}
+
+.service-hero__arch::after {
+    content: "";
+
+    position: absolute;
+    inset: 17px;
+
+    border: 1px solid rgba(255, 255, 255, 0.46);
+    border-radius: inherit;
+
+    pointer-events: none;
+}
+
+.service-hero__arch img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-hero__arch:hover img {
+    transform: scale(1.035);
+}
+
+
+/* Floating circular image */
+
+.service-hero__detail {
+    position: absolute;
+    z-index: 3;
+    right: -8px;
+    bottom: 74px;
+
+    width: clamp(150px, 14vw, 220px);
+    aspect-ratio: 1;
+
+    overflow: hidden;
+
+    border: 11px solid var(--color-bg);
+    border-radius: 50%;
+
+    box-shadow: var(--shadow-soft);
+}
+
+.service-hero__detail img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform var(--transition-slow);
+}
+
+.service-hero__detail:hover img {
+    transform: scale(1.07);
+}
+
+
+/* Small vertical caption */
+
+.service-hero__caption {
+    position: absolute;
+    top: 50%;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    color: var(--color-text-muted);
+
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.19em;
+    text-transform: uppercase;
+
+    transform:
+        translateY(-50%)
+        translateX(46%)
+        rotate(90deg);
+    transform-origin: center;
+}
+
+.service-hero__caption span {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.service-hero__caption span:not(:last-child)::after {
+    content: "";
+
+    width: 28px;
+    height: 1px;
+
+    background: var(--color-line);
+}
+
+
+/* =========================================================
+   FEATURE STRIP
+========================================================= */
+
+.service-feature-strip {
+    padding: 0 0 110px;
+
+    background: var(--color-bg);
+}
+
+.service-feature-strip__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+}
+
+.service-feature {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 22px;
+
+    min-height: 150px;
+    padding: 34px 28px;
+
+    transition:
+        background-color var(--transition-base),
+        padding-left var(--transition-base);
+}
+
+.service-feature:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+    top: 24px;
+    right: 0;
+    bottom: 24px;
+
+    width: 1px;
+
+    background: var(--color-line);
+}
+
+.service-feature > span {
+    padding-top: 5px;
+
+    color: var(--color-gold-dark);
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+}
+
+.service-feature h2 {
+    margin: 0 0 8px;
+
+    font-family: var(--font-display);
+    font-size: 29px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.service-feature p {
+    max-width: 220px;
+    margin: 0;
+
+    color: var(--color-text-muted);
+
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.service-feature:hover {
+    padding-left: 34px;
+
+    background: rgba(255, 255, 255, 0.34);
+}
+
+
+/* =========================================================
+   INSTALLATION GUIDE
+========================================================= */
+
+.installation-guide {
+    padding: 150px 0 165px;
+
+    background: var(--color-surface);
+}
+
+.installation-guide__inner {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 0.92fr)
+        minmax(0, 0.88fr);
+    align-items: center;
+    gap: clamp(75px, 9vw, 155px);
+}
+
+.installation-guide__visual {
+    min-width: 0;
+}
+
+.installation-guide__image {
+    position: relative;
+
+    width: min(100%, 650px);
+    aspect-ratio: 0.88;
+
+    overflow: hidden;
+
+    background: #ddd7cc;
+}
+
+.installation-guide__image::before {
+    content: "";
+
+    position: absolute;
+    z-index: 2;
+    inset: 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.38);
+
+    pointer-events: none;
+}
+
+.installation-guide__image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.installation-guide__image:hover img {
+    transform: scale(1.035);
+}
+
+.installation-guide__image-note {
+    max-width: 380px;
+    margin: 21px 0 0 auto;
+
+    color: var(--color-text-muted);
+
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-style: italic;
+    line-height: 1.35;
+
+    text-align: right;
+}
+
+.installation-guide__content {
+    max-width: 690px;
+}
+
+.installation-guide__content .section-title {
+    max-width: 640px;
+}
+
+
+/* Guide points */
+
+.installation-guide__points {
+    margin-top: 42px;
+
+    border-top: 1px solid var(--color-line);
+}
+
+.installation-guide__points article {
+    display: grid;
+    grid-template-columns: 48px minmax(180px, 0.8fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 20px;
+
+    padding: 27px 0;
+
+    border-bottom: 1px solid var(--color-line);
+
+    transition: padding-left var(--transition-base);
+}
+
+.installation-guide__points article:hover {
+    padding-left: 8px;
+}
+
+.installation-guide__points span {
+    padding-top: 4px;
+
+    color: var(--color-gold-dark);
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.installation-guide__points h3 {
+    margin: 0;
+
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.05;
+}
+
+.installation-guide__points p {
+    margin: 0;
+
+    color: var(--color-text-soft);
+
+    font-size: 11px;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   SERVICE MARQUEE
+========================================================= */
+
+.service-marquee {
+    width: 100%;
+
+    overflow: hidden;
+
+    padding: 24px 0;
+
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+
+    background: #e9e3d8;
+}
+
+.service-marquee__track {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+
+    width: max-content;
+
+    animation: service-marquee-scroll 32s linear infinite;
+}
+
+.service-marquee:hover .service-marquee__track {
+    animation-play-state: paused;
+}
+
+.service-marquee__track span {
+    flex: 0 0 auto;
+
+    color: #44443f;
+
+    font-family: var(--font-display);
+    font-size: clamp(34px, 3.5vw, 52px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.025em;
+}
+
+.service-marquee__track i {
+    flex: 0 0 auto;
+
+    width: 7px;
+    height: 7px;
+
+    border: 1px solid var(--color-gold-dark);
+    border-radius: 50%;
+}
+
+@keyframes service-marquee-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* =========================================================
+   INSTALLATION FEATURES
+========================================================= */
+
+.installation-features {
+    padding: 155px 0;
+
+    overflow: hidden;
+
+    background: var(--color-bg);
+}
+
+.installation-feature-slider {
+    overflow: visible;
+}
+
+.installation-feature-slider .swiper-wrapper {
+    align-items: stretch;
+}
+
+.installation-feature-card {
+    width: min(34vw, 465px);
+
+    overflow: hidden;
+
+    background: var(--color-surface);
+
+    transition: transform var(--transition-base);
+}
+
+.installation-feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.installation-feature-card__image {
+    aspect-ratio: 1.05;
+
+    overflow: hidden;
+
+    background: #ddd7cd;
+}
+
+.installation-feature-card__image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.installation-feature-card:hover
+.installation-feature-card__image img {
+    transform: scale(1.05);
+}
+
+.installation-feature-card__content {
+    min-height: 250px;
+    padding: 30px 31px 36px;
+}
+
+.installation-feature-card__content > span {
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: var(--color-gold-dark);
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.installation-feature-card__content h3 {
+    margin: 0 0 17px;
+
+    font-family: var(--font-display);
+    font-size: clamp(29px, 2.8vw, 39px);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+}
+
+.installation-feature-card__content p {
+    max-width: 340px;
+    margin: 0;
+
+    color: var(--color-text-soft);
+
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.installation-feature-slider__controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 18px;
+
+    margin-top: 36px;
+}
+
+.installation-feature-slider__controls .slider-progress {
+    width: 180px;
+}
+
+.installation-feature-slider__controls
+.swiper-pagination-progressbar-fill {
+    background: var(--color-text);
+}
+
+
+/* =========================================================
+   SERVICE PARALLAX
+========================================================= */
+
+.service-parallax {
+    padding: 0 0 155px;
+
+    background: var(--color-bg);
+}
+
+.service-parallax__frame {
+    position: relative;
+
+    min-height: clamp(640px, 65vw, 850px);
+
+    overflow: hidden;
+
+    background: #33332e;
+}
+
+.service-parallax__media {
+    position: absolute;
+    inset: -8% 0;
+
+    will-change: transform;
+}
+
+.service-parallax__media img {
+    width: 100%;
+    height: 116%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transform: scale(1.04);
+}
+
+.service-parallax__overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(26, 26, 23, 0.67) 0%,
+            rgba(26, 26, 23, 0.39) 42%,
+            rgba(26, 26, 23, 0.08) 78%,
+            rgba(26, 26, 23, 0.03) 100%
+        );
+}
+
+.service-parallax__content {
+    position: absolute;
+    z-index: 2;
+    bottom: clamp(60px, 7vw, 105px);
+    left: clamp(38px, 6vw, 92px);
+
+    width: min(calc(100% - 76px), 680px);
+}
+
+.service-parallax__content .section-title {
+    max-width: 660px;
+}
+
+.service-parallax__content > p:not(.section-eyebrow) {
+    max-width: 510px;
+    margin: 0 0 34px;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   INSTALLATION PROCESS
+========================================================= */
+
+.installation-process {
+    padding: 155px 0;
+
+    background: var(--color-surface);
+}
+
+.installation-process__inner {
+    display: grid;
+    grid-template-columns:
+        minmax(300px, 0.72fr)
+        minmax(0, 1.28fr);
+    align-items: start;
+    gap: clamp(70px, 9vw, 155px);
+}
+
+.installation-process__intro {
+    position: sticky;
+    top: calc(var(--header-height) + 48px);
+}
+
+.installation-process__intro .section-title {
+    max-width: 590px;
+}
+
+.installation-process__intro .section-copy {
+    max-width: 480px;
+}
+
+
+/* Timeline */
+
+.installation-process__timeline {
+    position: relative;
+
+    padding-left: 68px;
+}
+
+.installation-process__timeline::before {
+    content: "";
+
+    position: absolute;
+    top: 17px;
+    bottom: 17px;
+    left: 19px;
+
+    width: 1px;
+
+    background: var(--color-line);
+}
+
+.installation-process-step {
+    position: relative;
+
+    min-height: 165px;
+    padding: 0 0 50px;
+
+    transition: transform var(--transition-base);
+}
+
+.installation-process-step:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.installation-process-step:last-child {
+    padding-bottom: 0;
+}
+
+.installation-process-step:hover {
+    transform: translateX(8px);
+}
+
+.installation-process-step__number {
+    position: absolute;
+    top: 0;
+    left: -68px;
+
+    display: grid;
+    place-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    color: var(--color-gold-dark);
+    background: var(--color-surface);
+
+    border: 1px solid rgba(173, 129, 65, 0.55);
+    border-radius: 50%;
+
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+
+    transition:
+        color var(--transition-base),
+        background-color var(--transition-base),
+        border-color var(--transition-base);
+}
+
+.installation-process-step:hover
+.installation-process-step__number {
+    color: var(--color-white);
+
+    border-color: var(--color-gold-dark);
+    background: var(--color-gold-dark);
+}
+
+.installation-process-step__content {
+    padding-bottom: 42px;
+
+    border-bottom: 1px solid var(--color-line);
+}
+
+.installation-process-step:last-child
+.installation-process-step__content {
+    padding-bottom: 0;
+
+    border-bottom: 0;
+}
+
+.installation-process-step__content h3 {
+    margin: 0 0 15px;
+
+    font-family: var(--font-display);
+    font-size: clamp(31px, 3vw, 44px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.025em;
+}
+
+.installation-process-step__content p {
+    max-width: 570px;
+    margin: 0;
+
+    color: var(--color-text-soft);
+
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   COMFORT SPLIT
+========================================================= */
+
+.installation-comfort {
+    padding: 160px 0;
+
+    background: var(--color-bg);
+}
+
+.installation-comfort__inner {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 0.8fr)
+        minmax(0, 1.2fr);
+    align-items: center;
+    gap: clamp(70px, 8vw, 135px);
+}
+
+.installation-comfort__content {
+    max-width: 640px;
+}
+
+.installation-comfort__content .section-title {
+    max-width: 600px;
+}
+
+.installation-comfort__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    margin: 36px 0 40px;
+    padding: 0;
+
+    border-top: 1px solid var(--color-line);
+
+    list-style: none;
+}
+
+.installation-comfort__list li {
+    position: relative;
+
+    padding: 15px 0 15px 25px;
+
+    border-bottom: 1px solid var(--color-line);
+
+    color: var(--color-text-soft);
+
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+.installation-comfort__list li::before {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 2px;
+
+    width: 7px;
+    height: 7px;
+
+    border: 1px solid var(--color-gold-dark);
+    border-radius: 50%;
+
+    transform: translateY(-50%);
+}
+
+
+/* Comfort images */
+
+.installation-comfort__visual {
+    position: relative;
+
+    min-width: 0;
+    padding: 0 0 82px 80px;
+}
+
+.installation-comfort__main-image {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 0.95;
+
+    overflow: hidden;
+
+    background: #ddd8cd;
+}
+
+.installation-comfort__main-image::after {
+    content: "";
+
+    position: absolute;
+    inset: 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.42);
+
+    pointer-events: none;
+}
+
+.installation-comfort__main-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.installation-comfort__main-image:hover img {
+    transform: scale(1.035);
+}
+
+.installation-comfort__small-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: clamp(190px, 23vw, 320px);
+    aspect-ratio: 0.96;
+
+    overflow: hidden;
+
+    border: 12px solid var(--color-bg);
+
+    background: #d8d2c8;
+    box-shadow: var(--shadow-soft);
+}
+
+.installation-comfort__small-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform var(--transition-slow);
+}
+
+.installation-comfort__small-image:hover img {
+    transform: scale(1.055);
+}
+
+
+/* =========================================================
+   SERVICE FAQ
+========================================================= */
+
+.service-faq {
+    padding: 155px 0;
+
+    background: #ebe6dc;
+}
+
+.service-faq__inner {
+    display: grid;
+    grid-template-columns:
+        minmax(290px, 0.7fr)
+        minmax(0, 1.3fr);
+    align-items: start;
+    gap: clamp(70px, 9vw, 155px);
+}
+
+.service-faq__intro {
+    position: sticky;
+    top: calc(var(--header-height) + 48px);
+}
+
+.service-faq__intro .section-title {
+    max-width: 530px;
+}
+
+.service-faq__intro .section-copy {
+    max-width: 440px;
+}
+
+
+/* Accordion */
+
+.service-accordion {
+    border-top: 1px solid var(--color-line);
+}
+
+.service-accordion-item {
+    border-bottom: 1px solid var(--color-line);
+}
+
+.service-accordion-item__trigger {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 46px;
+    align-items: center;
+    gap: 30px;
+
+    width: 100%;
+    padding: 31px 0;
+
+    color: var(--color-text);
+    background: transparent;
+
+    text-align: left;
+
+    transition:
+        color var(--transition-base),
+        padding-left var(--transition-base);
+}
+
+.service-accordion-item__trigger > span:first-child {
+    font-family: var(--font-display);
+    font-size: clamp(25px, 2.5vw, 35px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+}
+
+.service-accordion-item__trigger:hover {
+    padding-left: 6px;
+
+    color: var(--color-gold-dark);
+}
+
+.service-accordion-item__icon {
+    position: relative;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--color-line);
+    border-radius: 50%;
+
+    transition:
+        color var(--transition-base),
+        border-color var(--transition-base),
+        background-color var(--transition-base),
+        transform var(--transition-base);
+}
+
+.service-accordion-item__icon::before,
+.service-accordion-item__icon::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 13px;
+    height: 1px;
+
+    background: currentColor;
+
+    transform: translate(-50%, -50%);
+
+    transition: transform var(--transition-base);
+}
+
+.service-accordion-item__icon::after {
+    transform:
+        translate(-50%, -50%)
+        rotate(90deg);
+}
+
+.service-accordion-item.is-open
+.service-accordion-item__icon {
+    color: var(--color-white);
+
+    border-color: var(--color-text);
+    background: var(--color-text);
+
+    transform: rotate(180deg);
+}
+
+.service-accordion-item.is-open
+.service-accordion-item__icon::after {
+    transform:
+        translate(-50%, -50%)
+        rotate(0);
+}
+
+.service-accordion-item__panel {
+    overflow: hidden;
+}
+
+.service-accordion-item__content {
+    max-width: 690px;
+
+    padding: 0 76px 34px 0;
+}
+
+.service-accordion-item__content p {
+    margin: 0;
+
+    color: var(--color-text-soft);
+
+    font-size: 12px;
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   SERVICE CONTACT
+========================================================= */
+
+.service-contact {
+    padding: 155px 0;
+
+    background: var(--color-bg);
+}
+
+.service-contact__inner {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 0.88fr)
+        minmax(0, 1.12fr);
+
+    min-height: 720px;
+
+    background: #e7e1d6;
+}
+
+.service-contact__visual {
+    position: relative;
+
+    min-height: 720px;
+
+    overflow: hidden;
+}
+
+.service-contact__visual::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 64%,
+            rgba(32, 32, 29, 0.12) 100%
+        );
+
+    pointer-events: none;
+}
+
+.service-contact__visual img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-contact__visual:hover img {
+    transform: scale(1.035);
+}
+
+.service-contact__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: clamp(58px, 7vw, 100px);
+}
+
+.service-contact__content .section-title {
+    max-width: 630px;
+}
+
+.service-contact__content .section-copy {
+    max-width: 540px;
+}
+
+
+/* Contact form */
+
+.service-contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 27px 34px;
+
+    width: 100%;
+    margin-top: 12px;
+}
+
+.service-contact-form__bottom {
+    grid-column: 1 / -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 34px;
+
+    margin-top: 8px;
+    padding-top: 28px;
+
+    border-top: 1px solid var(--color-line);
+}
+
+.service-contact-form__bottom p {
+    max-width: 400px;
+    margin: 0;
+
+    color: var(--color-text-muted);
+
+    font-size: 9px;
+    line-height: 1.7;
+}
+
+.service-contact-form__bottom .button {
+    flex: 0 0 auto;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (max-width: 1280px) {
+    .service-hero__inner {
+        grid-template-columns:
+            minmax(0, 0.9fr)
+            minmax(440px, 1.1fr);
+
+        gap: 76px;
+    }
+
+    .service-hero__title {
+        font-size: clamp(66px, 7.7vw, 96px);
+    }
+
+    .service-feature {
+        grid-template-columns: 34px minmax(0, 1fr);
+
+        padding-inline: 22px;
+    }
+
+    .installation-guide__inner,
+    .installation-comfort__inner {
+        gap: 85px;
+    }
+
+    .installation-process__inner,
+    .service-faq__inner {
+        gap: 90px;
+    }
+
+    .service-contact__content {
+        padding: 65px;
+    }
+}
+
+
+/* =========================================================
+   TABLET LANDSCAPE
+========================================================= */
+
+@media (max-width: 1024px) {
+    /* Hero */
+
+    .service-hero {
+        padding: 65px 0 115px;
+    }
+
+    .service-hero__inner {
+        grid-template-columns:
+            minmax(0, 0.9fr)
+            minmax(390px, 1.1fr);
+
+        gap: 52px;
+    }
+
+    .service-hero__visual {
+        padding-right: 26px;
+    }
+
+    .service-hero__detail {
+        right: -5px;
+
+        width: 165px;
+    }
+
+    .service-hero__caption {
+        display: none;
+    }
+
+
+    /* Feature strip */
+
+    .service-feature-strip {
+        padding-bottom: 90px;
+    }
+
+    .service-feature-strip__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-feature:nth-child(2)::after {
+        display: none;
+    }
+
+    .service-feature:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--color-line);
+    }
+
+
+    /* Guide */
+
+    .installation-guide {
+        padding: 125px 0 135px;
+    }
+
+    .installation-guide__inner {
+        gap: 58px;
+    }
+
+    .installation-guide__points article {
+        grid-template-columns:
+            42px
+            minmax(160px, 0.85fr)
+            minmax(0, 1fr);
+
+        gap: 16px;
+    }
+
+
+    /* Features */
+
+    .installation-features {
+        padding: 125px 0;
+    }
+
+    .installation-feature-card {
+        width: min(46vw, 430px);
+    }
+
+
+    /* Parallax */
+
+    .service-parallax {
+        padding-bottom: 125px;
+    }
+
+    .service-parallax__frame {
+        min-height: 720px;
+    }
+
+
+    /* Process */
+
+    .installation-process {
+        padding: 125px 0;
+    }
+
+    .installation-process__inner {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .installation-process__intro {
+        position: static;
+
+        max-width: 720px;
+    }
+
+
+    /* Comfort */
+
+    .installation-comfort {
+        padding: 130px 0;
+    }
+
+    .installation-comfort__inner {
+        gap: 55px;
+    }
+
+    .installation-comfort__visual {
+        padding-left: 55px;
+    }
+
+
+    /* FAQ */
+
+    .service-faq {
+        padding: 125px 0;
+    }
+
+    .service-faq__inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .service-faq__intro {
+        position: static;
+
+        max-width: 720px;
+    }
+
+
+    /* Contact */
+
+    .service-contact {
+        padding: 125px 0;
+    }
+
+    .service-contact__inner {
+        grid-template-columns:
+            minmax(0, 0.82fr)
+            minmax(0, 1.18fr);
+
+        min-height: 680px;
+    }
+
+    .service-contact__visual {
+        min-height: 680px;
+    }
+
+    .service-contact__content {
+        padding: 48px;
+    }
+}
+
+
+/* =========================================================
+   TABLET PORTRAIT
+========================================================= */
+
+@media (max-width: 820px) {
+    /* Hero */
+
+    .service-hero {
+        padding: 68px 0 105px;
+    }
+
+    .service-hero__inner {
+        grid-template-columns: 1fr;
+        gap: 70px;
+    }
+
+    .service-hero__content {
+        max-width: 720px;
+        padding-left: 0;
+    }
+
+    .service-hero__title {
+        max-width: 720px;
+
+        font-size: clamp(68px, 13vw, 94px);
+    }
+
+    .service-hero__visual {
+        width: min(88%, 650px);
+        margin-left: auto;
+        padding-right: 0;
+    }
+
+    .service-hero__arch {
+        width: 100%;
+    }
+
+    .service-hero__detail {
+        right: auto;
+        bottom: 42px;
+        left: -70px;
+
+        width: 180px;
+    }
+
+
+    /* Guide */
+
+    .installation-guide__inner {
+        grid-template-columns: 1fr;
+        gap: 72px;
+    }
+
+    .installation-guide__visual {
+        width: min(84%, 620px);
+    }
+
+    .installation-guide__content {
+        max-width: 720px;
+        margin-left: auto;
+    }
+
+
+    /* Features */
+
+    .installation-feature-card {
+        width: min(57vw, 430px);
+    }
+
+
+    /* Parallax */
+
+    .service-parallax__frame {
+        min-height: 690px;
+    }
+
+    .service-parallax__content {
+        bottom: 52px;
+        left: 34px;
+
+        width: calc(100% - 68px);
+    }
+
+
+    /* Comfort */
+
+    .installation-comfort__inner {
+        grid-template-columns: 1fr;
+        gap: 75px;
+    }
+
+    .installation-comfort__content {
+        max-width: 700px;
+    }
+
+    .installation-comfort__visual {
+        width: min(88%, 680px);
+        margin-left: auto;
+        padding-left: 80px;
+    }
+
+
+    /* Contact */
+
+    .service-contact__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .service-contact__visual {
+        min-height: 520px;
+    }
+
+    .service-contact__content {
+        padding: 68px 48px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+    /* Hero */
+
+    .service-hero {
+        padding: 52px 0 86px;
+    }
+
+    .service-hero::before {
+        display: none;
+    }
+
+    .service-hero__inner {
+        gap: 52px;
+    }
+
+    .service-hero__title {
+        margin-bottom: 22px;
+
+        font-size: clamp(55px, 17vw, 72px);
+        line-height: 0.88;
+    }
+
+    .service-hero__copy {
+        margin-bottom: 30px;
+
+        font-size: 13px;
+        line-height: 1.75;
+    }
+
+    .service-hero__actions {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .service-hero__visual {
+        width: 90%;
+    }
+
+    .service-hero__arch::after {
+        inset: 10px;
+    }
+
+    .service-hero__detail {
+        bottom: 24px;
+        left: -38px;
+
+        width: 120px;
+
+        border-width: 7px;
+    }
+
+
+    /* Feature strip */
+
+    .service-feature-strip {
+        padding-bottom: 72px;
+    }
+
+    .service-feature {
+        grid-template-columns: 28px minmax(0, 1fr);
+
+        min-height: 125px;
+        padding: 25px 14px;
+
+        gap: 10px;
+    }
+
+    .service-feature h2 {
+        font-size: 23px;
+    }
+
+    .service-feature p {
+        font-size: 10px;
+    }
+
+    .service-feature:nth-child(odd)::after {
+        display: block;
+    }
+
+    .service-feature:nth-child(even)::after {
+        display: none;
+    }
+
+    .service-feature:hover {
+        padding-left: 14px;
+    }
+
+
+    /* Guide */
+
+    .installation-guide {
+        padding: 96px 0 102px;
+    }
+
+    .installation-guide__inner {
+        gap: 55px;
+    }
+
+    .installation-guide__visual {
+        width: 90%;
+    }
+
+    .installation-guide__image::before {
+        inset: 10px;
+    }
+
+    .installation-guide__image-note {
+        max-width: 280px;
+
+        font-size: 17px;
+    }
+
+    .installation-guide__points {
+        margin-top: 32px;
+    }
+
+    .installation-guide__points article {
+        grid-template-columns: 34px minmax(0, 1fr);
+
+        gap: 9px 14px;
+
+        padding: 23px 0;
+    }
+
+    .installation-guide__points h3 {
+        font-size: 23px;
+    }
+
+    .installation-guide__points p {
+        grid-column: 2;
+
+        font-size: 11px;
+    }
+
+    .installation-guide__points article:hover {
+        padding-left: 0;
+    }
+
+
+    /* Marquee */
+
+    .service-marquee {
+        padding: 19px 0;
+    }
+
+    .service-marquee__track {
+        gap: 25px;
+
+        animation-duration: 26s;
+    }
+
+    .service-marquee__track span {
+        font-size: 31px;
+    }
+
+    .service-marquee__track i {
+        width: 5px;
+        height: 5px;
+    }
+
+
+    /* Feature slider */
+
+    .installation-features {
+        padding: 96px 0 100px;
+    }
+
+    .installation-feature-card {
+        width: 82vw;
+    }
+
+    .installation-feature-card__content {
+        min-height: 230px;
+        padding: 26px 23px 30px;
+    }
+
+    .installation-feature-card__content h3 {
+        font-size: 31px;
+    }
+
+    .installation-feature-slider__controls {
+        justify-content: flex-start;
+
+        margin-top: 28px;
+    }
+
+    .installation-feature-slider__controls .slider-progress {
+        width: 105px;
+    }
+
+
+    /* Parallax */
+
+    .service-parallax {
+        padding-bottom: 100px;
+    }
+
+    .service-parallax__frame {
+        min-height: 630px;
+    }
+
+    .service-parallax__media {
+        inset: -5% 0;
+    }
+
+    .service-parallax__media img {
+        height: 110%;
+
+        object-position: 58% center;
+    }
+
+    .service-parallax__overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(26, 26, 23, 0.08) 0%,
+                rgba(26, 26, 23, 0.25) 45%,
+                rgba(26, 26, 23, 0.8) 100%
+            );
+    }
+
+    .service-parallax__content {
+        bottom: 36px;
+        left: 20px;
+
+        width: calc(100% - 40px);
+    }
+
+    .service-parallax__content > p:not(.section-eyebrow) {
+        font-size: 12px;
+    }
+
+
+    /* Process */
+
+    .installation-process {
+        padding: 96px 0 100px;
+    }
+
+    .installation-process__inner {
+        gap: 38px;
+    }
+
+    .installation-process__timeline {
+        padding-left: 52px;
+    }
+
+    .installation-process__timeline::before {
+        left: 16px;
+    }
+
+    .installation-process-step {
+        min-height: auto;
+        padding-bottom: 34px;
+    }
+
+    .installation-process-step:not(:last-child) {
+        margin-bottom: 22px;
+    }
+
+    .installation-process-step__number {
+        left: -52px;
+
+        width: 34px;
+        height: 34px;
+    }
+
+    .installation-process-step__content {
+        padding-bottom: 32px;
+    }
+
+    .installation-process-step__content h3 {
+        font-size: 29px;
+    }
+
+    .installation-process-step__content p {
+        font-size: 11px;
+    }
+
+    .installation-process-step:hover {
+        transform: none;
+    }
+
+
+    /* Comfort */
+
+    .installation-comfort {
+        padding: 100px 0;
+    }
+
+    .installation-comfort__inner {
+        gap: 58px;
+    }
+
+    .installation-comfort__list {
+        margin: 30px 0 34px;
+    }
+
+    .installation-comfort__visual {
+        width: 92%;
+        padding: 0 0 65px 42px;
+    }
+
+    .installation-comfort__main-image::after {
+        inset: 10px;
+    }
+
+    .installation-comfort__small-image {
+        width: 145px;
+
+        border-width: 8px;
+    }
+
+
+    /* FAQ */
+
+    .service-faq {
+        padding: 96px 0 100px;
+    }
+
+    .service-faq__inner {
+        gap: 36px;
+    }
+
+    .service-accordion-item__trigger {
+        grid-template-columns:
+            minmax(0, 1fr)
+            38px;
+        gap: 16px;
+
+        padding: 25px 0;
+    }
+
+    .service-accordion-item__trigger > span:first-child {
+        font-size: 24px;
+    }
+
+    .service-accordion-item__trigger:hover {
+        padding-left: 0;
+    }
+
+    .service-accordion-item__icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .service-accordion-item__content {
+        padding: 0 0 28px;
+    }
+
+    .service-accordion-item__content p {
+        font-size: 11px;
+        line-height: 1.78;
+    }
+
+
+    /* Contact */
+
+    .service-contact {
+        padding: 100px 0;
+    }
+
+    .service-contact__visual {
+        min-height: 410px;
+    }
+
+    .service-contact__content {
+        padding: 50px 20px 55px;
+    }
+
+    .service-contact-form {
+        grid-template-columns: 1fr;
+
+        gap: 23px;
+    }
+
+    .service-contact-form .form-field--full {
+        grid-column: auto;
+    }
+
+    .service-contact-form__bottom {
+        grid-column: auto;
+
+        flex-direction: column;
+        align-items: stretch;
+        gap: 22px;
+
+        padding-top: 24px;
+    }
+
+    .service-contact-form__bottom .button {
+        width: 100%;
+    }
+
+    .service-contact-form .form-status {
+        grid-column: auto;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+    .service-hero__title {
+        font-size: 52px;
+    }
+
+    .service-hero__detail {
+        width: 105px;
+    }
+
+    .service-feature {
+        padding-inline: 10px;
+    }
+
+    .service-feature h2 {
+        font-size: 21px;
+    }
+
+    .installation-feature-card {
+        width: 86vw;
+    }
+
+    .installation-comfort__visual {
+        padding-left: 32px;
+    }
+
+    .installation-comfort__small-image {
+        width: 125px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .service-marquee__track {
+        animation-play-state: paused;
+    }
+
+    .service-hero__arch img,
+    .service-hero__detail img,
+    .installation-guide__image img,
+    .installation-feature-card__image img,
+    .installation-comfort__main-image img,
+    .installation-comfort__small-image img,
+    .service-contact__visual img {
+        transform: none !important;
+    }
+
+    .service-parallax__media {
+        transform: none !important;
+    }
+}

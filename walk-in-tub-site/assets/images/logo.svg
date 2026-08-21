@@ -1,0 +1,135 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <!-- Background volume -->
+    <radialGradient id="bg" cx="0" cy="0" r="1"
+      gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(190 155) rotate(48) scale(430)">
+      <stop stop-color="#D4A660"/>
+      <stop offset="0.58" stop-color="#C99A52"/>
+      <stop offset="1" stop-color="#B9853F"/>
+    </radialGradient>
+
+    <!-- Droplet soft white volume -->
+    <linearGradient id="drop" x1="205" y1="130" x2="320" y2="415"
+      gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="0.55" stop-color="#FFFDF9"/>
+      <stop offset="1" stop-color="#EDE6DC"/>
+    </linearGradient>
+
+    <!-- Soft outer shadow -->
+    <filter id="dropShadow" x="110" y="70" width="300" height="410"
+      filterUnits="userSpaceOnUse">
+      <feDropShadow
+        dx="0"
+        dy="18"
+        stdDeviation="18"
+        flood-color="#765323"
+        flood-opacity="0.28"/>
+    </filter>
+
+    <!-- Background shadow -->
+    <filter id="boxShadow" x="0" y="0" width="512" height="512">
+      <feDropShadow
+        dx="0"
+        dy="12"
+        stdDeviation="16"
+        flood-color="#765323"
+        flood-opacity="0.18"/>
+    </filter>
+
+    <!-- Blur for highlights -->
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded square -->
+  <g filter="url(#boxShadow)">
+    <rect
+      x="24"
+      y="24"
+      width="464"
+      height="464"
+      rx="112"
+      fill="url(#bg)"
+    />
+
+    <!-- subtle upper highlight -->
+    <path
+      d="M70 155C95 83 156 55 239 55"
+      stroke="white"
+      stroke-opacity="0.12"
+      stroke-width="13"
+      stroke-linecap="round"
+      filter="url(#blur)"
+    />
+  </g>
+
+  <!-- Main organic droplet -->
+  <g filter="url(#dropShadow)">
+    <path
+      d="
+        M256 105
+        C246 127 175 207 160 280
+        C143 363 190 426 254 431
+        C321 436 371 378 356 298
+        C344 231 286 147 256 105Z
+      "
+      fill="url(#drop)"
+    />
+  </g>
+
+  <!-- Soft inner depth -->
+  <path
+    d="
+      M313 215
+      C326 244 336 278 337 310
+      C339 365 306 402 271 414
+      C303 388 316 354 312 318
+      C308 280 298 249 284 222
+      C277 207 303 194 313 215Z
+    "
+    fill="#C7B9A6"
+    fill-opacity="0.22"
+  />
+
+  <!-- Main glossy highlight -->
+  <path
+    d="
+      M222 161
+      C191 201 178 242 176 281
+      C175 302 182 310 190 293
+      C204 258 224 226 247 197
+      C261 179 242 136 222 161Z
+    "
+    fill="white"
+    fill-opacity="0.78"
+  />
+
+  <!-- Small bright reflection -->
+  <ellipse
+    cx="210"
+    cy="218"
+    rx="12"
+    ry="23"
+    transform="rotate(26 210 218)"
+    fill="white"
+    fill-opacity="0.85"
+    filter="url(#blur)"
+  />
+
+  <!-- Bottom soft reflected light -->
+  <ellipse
+    cx="272"
+    cy="392"
+    rx="48"
+    ry="16"
+    fill="white"
+    fill-opacity="0.12"
+    filter="url(#blur)"
+  />
+
+</svg>
